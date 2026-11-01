@@ -1,0 +1,11 @@
+text=input("今天想说点什么？")
+f = open("日记.txt","a", encoding="utf-8")
+f.write(text+"\n")
+f.close()
+print("已经记下来啦！")
+f = open("日记.txt","r", encoding="utf-8")
+lines = f.readlines()
+f.close()
+print("你的日记本里现在有", len(lines), "条：")
+for line in lines:
+    print("-", line.strip())

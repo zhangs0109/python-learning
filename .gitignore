@@ -1,0 +1,5 @@
+# 让 Git 忽略这些文件，不要提交
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
