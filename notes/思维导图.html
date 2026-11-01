@@ -117,8 +117,8 @@
     <text x="616" y="450" dominant-baseline="central" font-size="13" fill="#085041">L8 字典·按物品汇总 ✔</text>
   </g>
   <g class="node" onclick="show('s3')">
-    <rect x="600" y="480" width="280" height="40" rx="8" fill="#F1EFE8" stroke="#888780" stroke-width="0.5"/>
-    <text x="616" y="500" dominant-baseline="central" font-size="13" fill="#5F5E5A">阶段三 Git / GitHub / 规范</text>
+    <rect x="600" y="480" width="280" height="40" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+    <text x="616" y="500" dominant-baseline="central" font-size="13" fill="#0C447C">阶段三 L9/L10 Git+GitHub ✔（进行中）</text>
   </g>
   <g class="node" onclick="show('s4')">
     <rect x="600" y="530" width="280" height="40" rx="8" fill="#F1EFE8" stroke="#888780" stroke-width="0.5"/>
@@ -272,12 +272,18 @@ for line in lines:
       <li>mongey_sum 拼写错误 → is not defined</li>
       <li>过期变量：循环结束后 money 还是最后一行的值，放进错误的循环就加错账</li></ul>
       <h3>职业连接</h3><ul><li>按物品归堆求和 = 物资消耗核算的雏形（阶段四物资核算工具的核心零件）</li></ul>` },
-  s3: { title: "阶段三 · Git / GitHub / 规范", status: "未开始", color: "#888780",
-    body: `<h3>内容</h3><ul>
-      <li>Git：init / add / commit / push，代码永久保存不丢失</li>
-      <li>GitHub：把记账脚本放上云端，建立自己的作品集</li>
-      <li>虚拟环境与 pip：第三方库装不乱系统</li>
-      <li>调试与规范：读报错、命名习惯、注释（其实已经在路上）</li></ul>` },
+  s3: { title: "阶段三 · Git / GitHub / 规范", status: "进行中 🔵 ｜ L9/L10 已完成（2026-11-01）", color: "#185FA5",
+    body: `<h3>L9 · Git 本地基础 ✔</h3><ul>
+      <li>三区模型：工作区 → 暂存区 → 本地仓库</li>
+      <li>核心循环：status → add → commit → log</li>
+      <li>diff 看改动、没有输出 = 一切正常</li>
+      <li>验收：两次提交（afc9972 / d40eff5），diff 精确对比 ✔</li></ul>
+      <h3>L10 · GitHub 远程仓库 ✔</h3><ul>
+      <li>注册账号 → 建空仓库 → VS Code OAuth 授权 → push 上云</li>
+      <li>commit = 本地存档，push = 同步云端，两者缺一不可</li>
+      <li>日常三命令：add / commit / push</li></ul>
+      <h3>接下来</h3><ul>
+      <li>L11 虚拟环境与 pip：装第三方库不乱系统</li></ul>` },
   s4: { title: "阶段四 · 独立项目实战", status: "未开始", color: "#888780",
     body: `<h3>毕业标准</h3><ul>
       <li>选一个自己真的想用的东西：记账网页版 / 待办工具 / 天气提醒 / 批量处理照片</li>
