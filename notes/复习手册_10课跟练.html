@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Python 十课复习手册 · 跟练版</title>
+<style>
+body{font-family:-apple-system,"PingFang SC",sans-serif;margin:0;background:#F7F7F5;color:#2C2C2A}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 20px 80px}
+h1{font-size:22px;font-weight:600;margin:0 0 4px}
+.sub{color:#6b6b66;font-size:13px;margin-bottom:22px}
+h2{font-size:16px;font-weight:600;margin:34px 0 12px;padding-top:18px;border-top:1px solid #E5E3DC}
+h3{font-size:14px;font-weight:600;margin:18px 0 8px}
+.nav{background:#fff;border:1px solid #E5E3DC;border-radius:12px;padding:12px 18px;font-size:13px;margin-bottom:24px}
+.nav a{color:#185FA5;text-decoration:none;margin-right:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:#fff;border:1px solid #E5E3DC;border-radius:12px;padding:14px 16px}
+.card .tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:99px;background:#E6F1FB;color:#185FA5;margin-bottom:6px}
+.card .tag.g{background:#EAF3DE;color:#3B6D11}
+.card .tag.p{background:#EEEDFE;color:#3C3489}
+.card h4{font-size:14px;font-weight:600;margin:0 0 6px}
+.card ul{margin:6px 0 8px;padding-left:18px;font-size:12.5px;line-height:1.7}
+.card ul li{margin-bottom:2px}
+code,.k{font-family:ui-monospace,Monaco,Consolas,monospace;background:#F1EFE8;border-radius:4px;padding:1px 5px;font-size:12px}
+pre{background:#1e1e1e;color:#d4d4d4;border-radius:10px;padding:14px 16px;font-size:12.5px;line-height:1.65;overflow-x:auto;font-family:ui-monospace,Monaco,Consolas,monospace}
+pre .c{color:#6a9955} pre .s{color:#ce9178} pre .kw{color:#569cd6}
+.pit{color:#993C1D;font-size:12.5px}
+details{background:#fff;border:1px solid #E5E3DC;border-radius:12px;padding:12px 16px;margin-bottom:10px}
+details summary{cursor:pointer;font-size:13.5px;font-weight:500;color:#2C2C2A;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";color:#185FA5}
+details[open] summary::before{content:"▾ "}
+details .ans{margin-top:10px}
+.hint{font-size:12px;color:#6b6b66;margin:4px 0 8px}
+.badge{display:inline-block;font-size:11px;padding:1px 7px;border-radius:99px;background:#FAEEDA;color:#854F0B;margin-left:8px;font-weight:400}
+.step{display:inline-block;min-width:34px;text-align:center;font-size:11px;padding:2px 6px;border-radius:6px;background:#E6F1FB;color:#185FA5;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;background:#fff;border-radius:10px;overflow:hidden}
+th,td{padding:7px 10px;border-bottom:1px solid #EFEDE6;text-align:left;vertical-align:top}
+th{background:#F1EFE8;color:#444441;font-weight:500}
+.note{background:#E1F5EE;border:1px solid #9FE1CB;border-radius:10px;padding:10px 14px;font-size:13px;margin:14px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Python 十课复习手册 · 跟练版</h1>
+<div class="sub">张双 ｜ 2026-10-28 起步 → 2026-11-01 ｜ 阶段一~三完成 + 阶段四进行中 ｜ 阿布 整理</div>
+
+<div class="nav">
+快速跳转：
+<a href="#map">一、知识地图</a>
+<a href="#how">二、跟练方法</a>
+<a href="#drill">三、跟练题库（点击展开答案）</a>
+<a href="#extend">四、扩展方向</a>
+<a href="#plan">五、记忆曲线复习计划</a>
+</div>
+
+<h2 id="map">一、知识地图：10 节课一张图</h2>
+<div class="grid">
+
+<div class="card"><span class="tag">L1 · 10-28</span><h4>输出与输入</h4>
+<ul><li><code>print()</code> 打印，<code>input()</code> 接收</li><li><code>#</code> 注释、代码符号必须英文半角</li><li>改完代码要 <code>Cmd+S</code> 再运行</li></ul>
+<div class="pit">坑：中文标点混入代码 → SyntaxError</div></div>
+
+<div class="card"><span class="tag">L2 · 10-28</span><h4>变量与三种类型</h4>
+<ul><li><code>str</code> 文本 / <code>int</code> 整数 / <code>float</code> 小数</li><li><code>input()</code> 一律返回 str，算数前要 <code>int()</code></li><li>print 里逗号自动加空格；<code>+</code> 拼接必须都是 str</li></ul>
+<div class="pit">坑：input 拿到的不转 int 就加减 → 字符串拼接</div></div>
+
+<div class="card"><span class="tag">L3 · 10-28</span><h4>分支判断</h4>
+<ul><li><code>if / elif / else</code> 从上往下逐个判</li><li><code>==</code> 是比较，<code>=</code> 是赋值</li><li>缩进 4 空格是 Python 的语法（不是装饰）</li></ul>
+<div class="pit">坑：= 与 == 混用；冒号后忘缩进 → IndentationError</div></div>
+
+<div class="card"><span class="tag">L4 · 10-28</span><h4>循环与随机数</h4>
+<ul><li><code>while True:</code> + <code>break</code> 退出</li><li><code>random.randint(1, 100)</code></li><li>计数器 <code>count = count + 1</code></li></ul>
+<div class="pit">坑：死循环 → Ctrl+C 救命</div></div>
+
+<div class="card"><span class="tag">L5 · 10-29</span><h4>容错 try/except</h4>
+<ul><li>可能出错的代码放进 <code>try:</code></li><li><code>except:</code> 后要用 <code>continue</code> 接回循环</li><li>程序不再被坏输入打崩</li></ul>
+<div class="pit">坑：只有 except 没有 continue → NameError</div></div>
+
+<div class="card"><span class="tag">L6 · 10-29</span><h4>文件读写</h4>
+<ul><li><code>open("日记.txt","a",encoding="utf-8")</code></li><li><code>f.write(...)</code> + <code>f.close()</code>；<code>"a"</code>追加/<code>"w"</code>覆盖/<code>"r"</code>读</li><li><code>readlines()</code> 逐行读，<code>strip()</code> 去换行</li></ul>
+<div class="pit">坑：write() 只收 1 个参数，不能像 print 用逗号</div></div>
+
+<div class="card"><span class="tag">L7 · 10-30</span><h4>循环统计（记账 v1）</h4>
+<ul><li><code>for line in lines:</code> 逐行遍历</li><li><code>line.split()</code> 按空格切出名称和金额</li><li><code>len()</code> 统计、<code>round(x,1)</code> 保留小数</li></ul>
+<div class="pit">坑：循环内外放错位置 → "过期变量"重复输出；脏数据 → 循环内 try/except 跳过</div></div>
+
+<div class="card"><span class="tag g">L8 · 10-30</span><h4>字典：按物品汇总</h4>
+<ul><li><code>money_sum = {}</code>、<code>name in dict</code> 查存在</li><li>核心套路："有就累加，没有就新建"</li><li>延伸：<code>max()</code>/<code>min()</code> 找价差</li></ul>
+<div class="pit">坑：变量名拼错（mongey_sum）→ 看 Problems 面板定位</div></div>
+
+<div class="card"><span class="tag p">L9 · 11-01</span><h4>Git 本地版本管理</h4>
+<ul><li>三区：工作区 → 暂存区(<code>add</code>) → 仓库(<code>commit</code>)</li><li><code>git status / diff / log</code> 日常三查</li><li>"没输出 = 成功"的 Unix 哲学</li></ul>
+<div class="pit">坑：配置后必验证（曾把邮箱填进 user.name）</div></div>
+
+<div class="card"><span class="tag p">L10 · 11-01</span><h4>GitHub 远程仓库</h4>
+<ul><li><code>commit</code> 是本地存档，<code>push</code> 才上云</li><li>日常三部曲：<code>add → commit → push</code></li><li>VS Code OAuth 免配置密钥</li></ul>
+<div class="pit">坑：Public/Private 可见性；未用的 PAT 要吊销</div></div>
+
+<div class="card"><span class="tag p">L11 · 11-01</span><h4>虚拟环境 + pandas</h4>
+<ul><li><code>source .venv/bin/activate</code> → 提示符出现 <code>(.venv)</code></li><li><code>pd.read_csv / read_excel / groupby / to_excel</code></li><li>向量化：整列运算，不用 for 循环</li></ul>
+<div class="pit">坑：忘进 venv → ModuleNotFoundError；xlsx 是二进制，要用 Excel Viewer / WPS 看</div></div>
+
+<div class="card"><span class="tag g">阶段四 · 进行中</span><h4>物资核算 + 光伏成本分析</h4>
+<ul><li>查重 <code>drop_duplicates()</code>（报清单，不静默删）</li><li>同类项汇总 <code>groupby().agg()</code>、加权平均价</li><li><code>df.loc[条件, 列]</code> 按条件改值、openpyxl 标红</li></ul>
+<div class="pit">坑：垃圾进垃圾出——数据质量是工具的第一道防线</div></div>
+</div>
+
+<h2 id="how">二、跟练方法（20 分钟一轮）</h2>
+<div class="note">
+<b>三轮法</b>：① 闭卷在终端里敲一遍（卡住也要自己写完）；② 点"查看参考答案"对照；③ 差异用 Git commit 记下。<br>
+<b>原则</b>：不抄答案、先写再看；每课 1 道默写 + 1 道变式；错在哪就在那题旁边做个记号，下次只复习记号题。
+</div>
+
+<h2 id="drill">三、跟练题库</h2>
+
+<h3>阶段一 · 基础语法（L1–L5）</h3>
+
+<details><summary><span class="step">默写</span>L1 · 输入名字和项目名，输出一句欢迎语 <span class="badge">3 分钟</span></summary><div class="ans">
+<div class="hint">预期运行效果：输入"张双"和"光伏项目"，输出：张双，欢迎回到光伏项目！</div>
+<pre>name = <span class="kw">input</span>(<span class="s">"你叫什么？ "</span>)
+proj = <span class="kw">input</span>(<span class="s">"什么项目？ "</span>)
+<span class="kw">print</span>(name, <span class="s">"，欢迎回到"</span>, proj, <span class="s">！"</span>)</pre></div></details>
+
+<details><summary><span class="step">默写</span>L2 · 输入两次金额，输出合计（保留 1 位小数） <span class="badge">3 分钟</span></summary><div class="ans">
+<div class="hint">考：input 返回 str，必须先 int/float 转换</div>
+<pre>a = <span class="kw">float</span>(<span class="kw">input</span>(<span class="s">"第一笔： "</span>))
+b = <span class="kw">float</span>(<span class="kw">input</span>(<span class="s">"第二笔： "</span>))
+<span class="kw">print</span>(<span class="s">"合计"</span>, <span class="kw">round</span>(a + b, <span class="s">1</span>), <span class="s">"元"</span>)</pre></div></details>
+
+<details><summary><span class="step">变式</span>L2 · 同样输入两笔，多算一个"平均" <span class="badge">3 分钟</span></summary><div class="ans">
+<pre>avg = (a + b) / 2
+<span class="kw">print</span>(<span class="s">"平均"</span>, <span class="kw">round</span>(avg, <span class="s">1</span>), <span class="s">"元"</span>)</pre></div></details>
+
+<details><summary><span class="step">默写</span>L3 · 输入分数，输出 A(≥90) / B(≥60) / C(其余) <span class="badge">4 分钟</span></summary><div class="ans">
+<pre>score = <span class="kw">int</span>(<span class="kw">input</span>(<span class="s">"分数： "</span>))
+<span class="kw">if</span> score >= 90:
+    <span class="kw">print</span>(<span class="s">"A"</span>)
+<span class="kw">elif</span> score >= 60:
+    <span class="kw">print</span>(<span class="s">"B"</span>)
+<span class="kw">else</span>:
+    <span class="kw">print</span>(<span class="s">"C"</span>)</pre></div></details>
+
+<details><summary><span class="step">变式</span>L3 · 改成按"超耗率"分级：&gt;5% 红、0~5% 黄、≤0 绿 <span class="badge">4 分钟</span></summary><div class="ans">
+<pre>rate = <span class="kw">float</span>(<span class="kw">input</span>(<span class="s">"超耗率%： "</span>))
+<span class="kw">if</span> rate > 5:
+    <span class="kw">print</span>(<span class="s">"红（超耗）"</span>)
+<span class="kw">elif</span> rate > 0:
+    <span class="kw">print</span>(<span class="s">"黄（关注）"</span>)
+<span class="kw">else</span>:
+    <span class="kw">print</span>(<span class="s">"绿（正常）"</span>)</pre></div></details>
+
+<details><summary><span class="step">默写</span>L4 · 猜数字：随机 1~100，循环猜，提示大小，统计次数 <span class="badge">6 分钟</span></summary><div class="ans">
+<pre><span class="kw">import</span> random
+answer = random.randint(1, 100)
+count = 0
+<span class="kw">while True</span>:
+    guess = <span class="kw">int</span>(<span class="kw">input</span>(<span class="s">"猜一个数： "</span>))
+    count = count + 1
+    <span class="kw">if</span> guess > answer:
+        <span class="kw">print</span>(<span class="s">"大了"</span>)
+    <span class="kw">elif</span> guess < answer:
+        <span class="kw">print</span>(<span class="s">"小了"</span>)
+    <span class="kw">else</span>:
+        <span class="kw">print</span>(<span class="s">"猜对了！用了"</span>, count, <span class="s">"次"</span>)
+        <span class="kw">break</span></pre></div></details>
+
+<details><summary><span class="step">变式</span>L4 · 最多猜 7 次，猜完没中就公布答案 <span class="badge">4 分钟</span></summary><div class="ans">
+<div class="hint">提示：在循环开头加判断，break 前 print 答案</div>
+<pre>    <span class="kw">if</span> count >= 7:
+        <span class="kw">print</span>(<span class="s">"机会用完，答案是"</span>, answer)
+        <span class="kw">break</span></pre></div></details>
+
+<details><summary><span class="step">默写</span>L5 · 给上面的猜数字加防崩（输入非数字不崩、重新输入） <span class="badge">4 分钟</span></summary><div class="ans">
+<pre>    text = <span class="kw">input</span>(<span class="s">"猜一个数： "</span>)
+    <span class="kw">try</span>:
+        guess = <span class="kw">int</span>(text)
+    <span class="kw">except</span>:
+        <span class="kw">print</span>(<span class="s">"请输入数字！"</span>)
+        <span class="kw">continue</span></pre></div></details>
+
+<h3>阶段二 · 小脚本（L6–L8）</h3>
+
+<details><summary><span class="step">默写</span>L6 · 把输入的一句话追加写入 note.txt <span class="badge">4 分钟</span></summary><div class="ans">
+<pre>text = <span class="kw">input</span>(<span class="s">"记点什么： "</span>)
+f = <span class="kw">open</span>(<span class="s">"note.txt"</span>, <span class="s">"a"</span>, encoding=<span class="s">"utf-8"</span>)
+f.write(text + <span class="s">"\n"</span>)
+f.close()
+<span class="kw">print</span>(<span class="s">"写好了"</span>)</pre></div></details>
+
+<details><summary><span class="step">默写</span>L7 · 读流水文件（每行"名称 金额"），打印明细并算总额 <span class="badge">6 分钟</span></summary><div class="ans">
+<pre>f = <span class="kw">open</span>(<span class="s">"流水.txt"</span>, <span class="s">"r"</span>, encoding=<span class="s">"utf-8"</span>)
+lines = f.readlines()
+f.close()
+total = 0
+<span class="kw">for</span> line <span class="kw">in</span> lines:
+    parts = line.split()
+    name = parts[0]
+    money = <span class="kw">int</span>(parts[1])
+    <span class="kw">print</span>(name, money, <span class="s">"元"</span>)
+    total = total + money
+<span class="kw">print</span>(<span class="s">"合计"</span>, total, <span class="s">"元"</span>)</pre></div></details>
+
+<details><summary><span class="step">变式</span>L7 · 查询时遇到坏行（金额不是数字）跳过，不崩 <span class="badge">4 分钟</span></summary><div class="ans">
+<pre>    <span class="kw">try</span>:
+        money = <span class="kw">int</span>(parts[1])
+    <span class="kw">except</span>:
+        <span class="kw">print</span>(<span class="s">"（跳过坏数据："</span>, line.strip(), <span class="s">"）"</span>)
+        <span class="kw">continue</span></pre></div></details>
+
+<details><summary><span class="step">默写</span>L8 · 用字典统计：奶茶 25, 电影票 30, 奶茶 10，按物品汇总 <span class="badge">5 分钟</span></summary><div class="ans">
+<pre>records = [(<span class="s">"奶茶"</span>, 25), (<span class="s">"电影票"</span>, 30), (<span class="s">"奶茶"</span>, 10)]
+money_sum = {}
+<span class="kw">for</span> name, money <span class="kw">in</span> records:
+    <span class="kw">if</span> name <span class="kw">in</span> money_sum:
+        money_sum[name] = money_sum[name] + money
+    <span class="kw">else</span>:
+        money_sum[name] = money
+<span class="kw">print</span>(money_sum)   <span class="c"># {'奶茶': 35, '电影票': 30}</span></pre></div></details>
+
+<details><summary><span class="step">变式</span>L8 · 同一物品出现不同价格就报警（奶茶：25 和 10） <span class="badge">4 分钟</span></summary><div class="ans">
+<pre>prices = {}
+<span class="kw">for</span> name, money <span class="kw">in</span> records:
+    <span class="kw">if</span> name <span class="kw">in</span> prices:
+        prices[name].append(money)
+    <span class="kw">else</span>:
+        prices[name] = [money]
+<span class="kw">for</span> name <span class="kw">in</span> prices:
+    <span class="kw">if</span> <span class="kw">max</span>(prices[name]) != <span class="kw">min</span>(prices[name]):
+        <span class="kw">print</span>(name, <span class="s">"价格异常："</span>, prices[name])</pre></div></details>
+
+<h3>阶段三 · Git（L9–L10）</h3>
+
+<details><summary><span class="step">默写</span>L9 · 新项目第一次提交的完整命令（6 条） <span class="badge">4 分钟</span></summary><div class="ans">
+<pre>git config --global user.name <span class="s">"张双"</span>
+git config --global user.email <span class="s">"zhangs0109@163.com"</span>
+git config --global core.quotepath <span class="kw">false</span>   <span class="c"># 中文文件名不乱码</span>
+git init
+git add .
+git commit -m <span class="s">"初始提交"</span></pre></div></details>
+
+<details><summary><span class="step">默写</span>L10 · 日常归档三部曲（今天改完代码后） <span class="badge">2 分钟</span></summary><div class="ans">
+<pre>git add .
+git commit -m <span class="s">"光伏项目成本分析 v1"</span>
+git push</pre></div></details>
+
+<details><summary><span class="step">变式</span>L9/L10 · 想撤销"暂存"和查看"改了什么"，各用什么命令？ <span class="badge">3 分钟</span></summary><div class="ans">
+<div class="hint">暂存区退回工作区 / 看本次改动内容</div>
+<pre>git status          <span class="c"># 先看状态</span>
+git diff            <span class="c"># 看具体改动（未暂存的）</span>
+git restore --staged 文件名   <span class="c"># 从暂存区撤回</span></pre></div></details>
+
+<h3>L11 · 虚拟环境 + pandas</h3>
+
+<details><summary><span class="step">默写</span>L11 · 进环境 → 装库 → 读 CSV → 按列汇总 → 导出 Excel <span class="badge">6 分钟</span></summary><div class="ans">
+<pre><span class="c"># 终端里：</span>
+source .venv/bin/activate
+pip install pandas openpyxl
+
+<span class="c"># 代码里：</span>
+<span class="kw">import</span> pandas <span class="kw">as</span> pd
+df = pd.read_csv(<span class="s">"物品汇总.csv"</span>, encoding=<span class="s">"utf-8-sig"</span>)
+result = df.groupby(<span class="s">"物品"</span>)[<span class="s">"金额"</span>].sum()
+result.to_excel(<span class="s">"汇总.xlsx"</span>)</pre></div></details>
+
+<details><summary><span class="step">变式</span>L11 · 报错 <code>ModuleNotFoundError: No module named 'pandas'</code>，第一反应查什么？ <span class="badge">1 分钟</span></summary><div class="ans">
+<div class="hint">不是代码问题，是环境问题</div>
+<pre><span class="c"># 看终端提示符有没有 (.venv) 前缀；没有就：</span>
+source .venv/bin/activate
+<span class="c"># 再跑</span></pre></div></details>
+
+<h3>阶段四 · 项目实战（跟练改造）</h3>
+
+<details><summary><span class="step">改造</span>把 <code>material_check.py</code> 的超耗阈值从 3% 调成 8%，看预警怎么变 <span class="badge">5 分钟</span></summary><div class="ans">
+<div class="hint">只改文件顶部的配置项，不改逻辑</div>
+<pre>THRESHOLD = 8      <span class="c"># 原来 3</span></pre></div></details>
+
+<details><summary><span class="step">改造</span>给 <code>pv_analysis.py</code> 加一个维度：按"费用归集人员"统计录入笔数 <span class="badge">10 分钟</span></summary><div class="ans">
+<div class="hint">复用 agg_by 函数，一行就能加</div>
+<pre>staff = agg_by([<span class="s">"费用归集人员"</span>])
+<span class="c"># 再把它写进 Excel：staff.to_excel(w, sheet_name="11_归集人员", index=False)</span></pre></div></details>
+
+<details><summary><span class="step">应用</span>在 <code>pv_analysis.py</code> 里找 3 处你可以自己改的地方，改完重跑对拍 <span class="badge">15 分钟</span></summary><div class="ans">
+<div class="hint">例如：TOP20 改 TOP10、材料表 head(60) 改 head(100)、看板 KPI 加一张卡片、新增一张 Sheet</div></div></details>
+
+<h2 id="extend">四、扩展方向（按你的职业定制）</h2>
+<table>
+<tr><th>方向</th><th>做什么</th><th>难度</th></tr>
+<tr><td><b>L12 · 函数 def</b></td><td>把"读取→清洗→汇总→导出"封装成函数，下月换数据源只传文件名</td><td>★★</td></tr>
+<tr><td><b>L13 · 月度环比</b></td><td>在光伏分析上加"本月 vs 上月"环比、累计趋势，用 <code>pct_change()</code></td><td>★★</td></tr>
+<tr><td><b>L14 · 分包结算台账</b></td><td>计量-应付-实付-余额四栏自动核算（复用 groupby + loc 两件套）</td><td>★★★</td></tr>
+<tr><td><b>L15 · 供应商考核</b></td><td>把超耗追到供应商头上：同一供应商多笔合并、算单价离散度</td><td>★★★</td></tr>
+<tr><td><b>L16 · 多文件合并</b></td><td>十几个分包商各报一份 Excel，一个循环读进来 <code>pd.concat()</code></td><td>★★★</td></tr>
+<tr><td><b>通用 · 编码归一</b></td><td>把计价单位、材料编码建一张"标准字典"对照表，自动替换</td><td>★★</td></tr>
+</table>
+
+<h2 id="plan">五、记忆曲线复习计划</h2>
+<table>
+<tr><th>时间</th><th>做什么</th><th>时长</th></tr>
+<tr><td>今天</td><td>把这份手册按"三轮法"完整过一遍（本页）</td><td>20 分钟</td></tr>
+<tr><td>3 天后（11-04）</td><td>只做标注过的错题 + 默写 L8/L11（字典、groupby 是核心）</td><td>10 分钟</td></tr>
+<tr><td>1 周后（11-08）</td><td>不看答案重写物资核算 v2 的核心 10 行（查重+汇总+预警）</td><td>15 分钟</td></tr>
+<tr><td>1 月后（12-01）</td><td>给光伏分析换一个真实新数据源，全流程独立复现</td><td>30 分钟</td></tr>
+</table>
+
+<div class="note" style="margin-top:26px">
+<b>阿布的话</b>：你已经从零基础走到"能自己改代码、能读懂 9000 行台账、能给工具挑毛病"——这比记住多少函数重要得多。接下来一个月，<b>不追新语法，只把这套东西用熟</b>。
+</div>
+
+</div>
+</body>
+</html>
