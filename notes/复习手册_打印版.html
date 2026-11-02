@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="EvHuvDfcdymvb40qLk93fo">
+<head data-page-node-id="TW6HjynvjzT8HZfVf1KLHp">
+<meta charset="utf-8" data-page-node-id="96iwxIBCFCxyupKNvp7B2m">
+<title>Python 十课复习手册 · 跟练版（双语）</title>
+<style>
+body{font-family:-apple-system,"PingFang SC",sans-serif;margin:0;background:#F7F7F5;color:#2C2C2A}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 20px 80px}
+h1{font-size:22px;font-weight:600;margin:0 0 4px}
+.sub{color:#6b6b66;font-size:13px;margin-bottom:22px}
+h2{font-size:16px;font-weight:600;margin:34px 0 12px;padding-top:18px;border-top:1px solid #E5E3DC}
+h3{font-size:14px;font-weight:600;margin:18px 0 8px}
+.nav{background:#fff;border:1px solid #E5E3DC;border-radius:12px;padding:12px 18px;font-size:13px;margin-bottom:24px}
+.nav a{color:#185FA5;text-decoration:none;margin-right:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:#fff;border:1px solid #E5E3DC;border-radius:12px;padding:14px 16px}
+.card .tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:99px;background:#E6F1FB;color:#185FA5;margin-bottom:6px}
+.card .tag.g{background:#EAF3DE;color:#3B6D11}
+.card .tag.p{background:#EEEDFE;color:#3C3489}
+.card h4{font-size:14px;font-weight:600;margin:0 0 6px}
+.card h4 .en{color:#6b6b66;font-weight:400;font-size:12px}
+.card ul{margin:6px 0 8px;padding-left:18px;font-size:12.5px;line-height:1.7}
+.card ul li{margin-bottom:2px}
+code,.k{font-family:ui-monospace,Monaco,Consolas,monospace;background:#F1EFE8;border-radius:4px;padding:1px 5px;font-size:12px}
+pre{background:#1e1e1e;color:#d4d4d4;border-radius:10px;padding:14px 16px;font-size:12.5px;line-height:1.65;overflow-x:auto;font-family:ui-monospace,Monaco,Consolas,monospace}
+pre .c{color:#6a9955} pre .s{color:#ce9178} pre .kw{color:#569cd6}
+.pit{color:#993C1D;font-size:12.5px}
+details{background:#fff;border:1px solid #E5E3DC;border-radius:12px;padding:12px 16px;margin-bottom:10px}
+details summary{cursor:pointer;font-size:13.5px;font-weight:500;color:#2C2C2A;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";color:#185FA5}
+details[open] summary::before{content:"▾ "}
+details .ans{margin-top:10px}
+.hint{font-size:12px;color:#6b6b66;margin:4px 0 8px}
+.badge{display:inline-block;font-size:11px;padding:1px 7px;border-radius:99px;background:#FAEEDA;color:#854F0B;margin-left:8px;font-weight:400}
+.step{display:inline-block;min-width:34px;text-align:center;font-size:11px;padding:2px 6px;border-radius:6px;background:#E6F1FB;color:#185FA5;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;background:#fff;border-radius:10px;overflow:hidden}
+th,td{padding:7px 10px;border-bottom:1px solid #EFEDE6;text-align:left;vertical-align:top}
+th{background:#F1EFE8;color:#444441;font-weight:500}
+.note{background:#E1F5EE;border:1px solid #9FE1CB;border-radius:10px;padding:10px 14px;font-size:13px;margin:14px 0}
+.en{color:#185FA5}
+
+@page { size: A4; margin: 14mm 13mm 16mm 13mm; }
+@media print {
+  body { background: #fff; font-size: 10.5pt; }
+  .wrap { max-width: none; padding: 0; }
+  .nav { display: none; }                 /* 跳转目录在纸上没用 */
+  h1 { font-size: 20pt; }
+  h2 { page-break-before: always; font-size: 14pt; margin-top: 0; }
+  h2#map { page-break-before: avoid; }    /* 首页不另起 */
+  h3 { font-size: 11.5pt; page-break-after: avoid; }
+  .grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .card, details, table, pre { page-break-inside: avoid; }
+  details { border: 0.5pt solid #D8D6CE; padding: 8px 10px; }
+  details summary { font-weight: 600; }
+  details .ans { border-top: 0.5pt dashed #D8D6CE; padding-top: 6px; margin-top: 6px; }
+  pre { font-size: 8.5pt; padding: 8px 10px; }
+  table { font-size: 9.5pt; }
+  th, td { padding: 4px 6px; }
+  .note { page-break-inside: avoid; }
+  /* 每题右侧留出批注空间 */
+  .ans { background: #FCFCFA; }
+}
+
+</style>
+</head>
+<body data-page-node-id="xXNWuXo2Iq8YWp4bLR3tll">
+<div class="wrap" data-page-node-id="1t60sdJT45MdtPDThIT2ki">
+
+<h1 data-page-node-id="7mX0d62qej76NoMiyhbGBM">Python 十课复习手册 · 跟练版（双语 · 打印批注版）</h1>
+<div class="sub" data-page-node-id="CfCrNuO0c5z40DrW7cBr43">张双 ｜ 2026-10-28 起步 → 2026-11-01 ｜ 阶段一~三完成 + 阶段四进行中 ｜ 术语格式：英文（中文）</div>
+
+<div class="nav" data-page-node-id="uho8aFqe1iuLjQeqiDVid1">
+快速跳转：
+<a href="#map" data-page-node-id="qUxKqjo2yT9EbaMO0KJv3d">一、知识地图</a>
+<a href="#how" data-page-node-id="rf52BZxwpepFTq4MHJ4W1n">二、跟练方法</a>
+<a href="#drill" data-page-node-id="qHAZ8wx8loZfDhWR2kdhg3">三、跟练题库</a>
+<a href="#vocab" data-page-node-id="NGXfVlVxCpnEkrjIH2F7dE">四、高频英文词汇表</a>
+<a href="#extend" data-page-node-id="ub87tQ4YGRlolZ3dAQXJ5d">五、扩展方向</a>
+<a href="#plan" data-page-node-id="PvZTcZP64n4YloOBYS0bYH">六、记忆曲线复习计划</a>
+</div>
+
+<h2 id="map" data-page-node-id="bArW9s4gHmZ4v70ARG6F0e">一、知识地图：10 节课一张图</h2>
+<div class="grid" data-page-node-id="rz8wFFgLRNF7F54GUoxT7W">
+
+<div class="card" data-page-node-id="9SgukDjlC8a9EMjVUGZw9m"><span class="tag" data-page-node-id="gdDh7zTPkjOvaIxK7ZJB2r">L1 · 10-28</span><h4 data-page-node-id="BQQufUJNwTmU0qjNhRZlgX">输出与输入 <span class="en" data-page-node-id="XD4NO1UlHav9YJURhBnyic">print · input</span></h4>
+<ul data-page-node-id="Shy7KrLG2kg0JgTdPjivAw"><li data-page-node-id="kgpws4kB6GGsDwPzKv4h7n"><code data-page-node-id="rzb0PxBMuNfDPFaB5Eziix">print()</code> 打印输出，<code data-page-node-id="nrEXqXYf2WmLuJO7VFw9gH">input()</code> 接收输入</li><li data-page-node-id="dopjRQrYi1H90SK7AypJVI"><code data-page-node-id="e8pKnFBsCQBVRz2Oa4QCot">#</code> 注释 comment；代码符号必须英文半角 half-width</li><li data-page-node-id="VGsn5PRBV2XkDUArMTJm4l">改完代码要 <code data-page-node-id="lqc24yZKQajIzWxDeMethU">Cmd+S</code> 保存 save 再运行 run</li></ul>
+<div class="pit" data-page-node-id="M48M0m7NPkVvh1uTfuThxs">坑：中文标点混入代码 → SyntaxError（语法错误）</div></div>
+
+<div class="card" data-page-node-id="liumhQr6R8ta5x5RqJcTZ1"><span class="tag" data-page-node-id="RsNNqwD7CdV3XHAxlrjAdw">L2 · 10-28</span><h4 data-page-node-id="zjbaUeWbUhibwyDoVFKs99">变量与类型 <span class="en" data-page-node-id="DjekwHiYRsidUSBh7lriQO">variable · type</span></h4>
+<ul data-page-node-id="KILa6ycAwHddSmkexIYEZK"><li data-page-node-id="QJeJ6WBn7qHWy5sFi19BvF"><code data-page-node-id="AuUSXFBclLJn7OfiFY3VMf">str</code> 字符串 string / <code data-page-node-id="fXbaSnTjcB83aFIht9UJKm">int</code> 整数 integer / <code data-page-node-id="p2pr6Cf0blvsXdCyekhhon">float</code> 小数 floating-point</li><li data-page-node-id="4H45A2uVchT7g3D2CpYQ1a"><code data-page-node-id="uf6Dn3V75d70lyOfEMeVjG">input()</code> 一律返回 str，算数前要 <code data-page-node-id="gT7kH2QnwWjF2wejbd2rHd">int()</code> 或 <code data-page-node-id="NnEVtCbCNAXBn9Q2FAOZtD">float()</code> 转换 convert</li><li data-page-node-id="qf9L4yJDVlWaBzCKBWN7Fm">print 里逗号自动加空格；<code data-page-node-id="3milTQ8ehkUEfgUsTQV3A7">+</code> 拼接 concatenate 必须都是 str</li></ul>
+<div class="pit" data-page-node-id="kH6LRRZZlKpALiJpaR1wPs">坑：不转 int 就加减 → TypeError（类型错误）</div></div>
+
+<div class="card" data-page-node-id="fhpoYOyxYUex82JuTk4BEN"><span class="tag" data-page-node-id="5tq1PnEipGmwLuvsr4NVNb">L3 · 10-28</span><h4 data-page-node-id="osJiTW4qx4DdfAs82KFZFH">分支判断 <span class="en" data-page-node-id="FwZn94FmqEnxETu5eGkF1j">if · elif · else</span></h4>
+<ul data-page-node-id="XL8WG4vnDYTzyXNII9OZ2X"><li data-page-node-id="KLw5bOA27VhtjUbwBCpf1V"><code data-page-node-id="JeAUUKDvfibEXCRNgjtYE5">if / elif / else</code> 如果 / 否则如果 / 否则</li><li data-page-node-id="O7KIYE88YFAxDWxpff0v7Z"><code data-page-node-id="gxDj0QIPG3i9HG3xPK3SFG">==</code> 比较 compare，<code data-page-node-id="rwTbxfzBWWBlywqNAcN5D7">=</code> 赋值 assign</li><li data-page-node-id="mmGDFQbj52uLusH74zgXaq">缩进 indentation 4 空格是 Python 语法（不是装饰）</li></ul>
+<div class="pit" data-page-node-id="KsBdXbelz7psZIpGY0bSac">坑：忘缩进 → IndentationError（缩进错误）</div></div>
+
+<div class="card" data-page-node-id="n2XxGtZXKjOdSv9OszOLES"><span class="tag" data-page-node-id="t1f1u6z3pYjU9EEtqibFLC">L4 · 10-28</span><h4 data-page-node-id="adUJbSY82GbmbDXlAD66gX">循环与随机 <span class="en" data-page-node-id="T9PuZffv4NEezsjQSkVm2y">loop · random</span></h4>
+<ul data-page-node-id="FH2LbNFAdkHwpFzowf2ZSz"><li data-page-node-id="He8xXy1s4dbgJ030ILWKPy"><code data-page-node-id="KN9T9MloPCqkpV6hBGNfUy">while True:</code> 循环 + <code data-page-node-id="Lx2hWlPBkgqvy8bEDPoqjU">break</code> 跳出</li><li data-page-node-id="QH5LmHs8aaFI4HLgN2svxN"><code data-page-node-id="Me7zOndsFxQo8xXAXiehQu">random.randint(1, 100)</code> 随机整数</li><li data-page-node-id="ojsppz8TVfNbSspxDy1PTE">计数器 counter：<code data-page-node-id="CgRZrpTLqVYfujtehoYVjC">count = count + 1</code></li></ul>
+<div class="pit" data-page-node-id="3IYlU1DBkCvhhMY6iCaxxP">坑：死循环 infinite loop → Ctrl+C 终止</div></div>
+
+<div class="card" data-page-node-id="meJ75Z7YAD8EpSmmKboqQY"><span class="tag" data-page-node-id="fuC3sVfZcigfSrJqKQW9EC">L5 · 10-29</span><h4 data-page-node-id="t6d85sLjNzykBMVzsRXSn6">容错处理 <span class="en" data-page-node-id="LaMrfqOG99kTjg0jNFPUZA">try · except</span></h4>
+<ul data-page-node-id="tB2tiHsyu4NDfXAZEDmdAB"><li data-page-node-id="4BXQ38ECDd1Blr47hPd39i">可能出错的代码放进 <code data-page-node-id="cZAbG5aTlx9Z5b8tlAxIJg">try:</code> 尝试</li><li data-page-node-id="4bwqedO4032i2YG2GbxDFR"><code data-page-node-id="oZP4WbCzCB2m1rOmMHHuJC">except:</code> 接住错误 + <code data-page-node-id="WUV0c6xehAoIuf9al1xESD">continue</code> 继续下一轮</li><li data-page-node-id="3kDdxZzJliw3IE4vBE3dgs">程序不再被坏输入打崩 crash</li></ul>
+<div class="pit" data-page-node-id="MTXh3DxawtIwFhIppQOjNv">坑：except 后没 continue → NameError（名称错误）</div></div>
+
+<div class="card" data-page-node-id="j9y1ygtU08yYybVcRLVCkb"><span class="tag" data-page-node-id="Q1MbVTOMbDjHoW1WC3pGVk">L6 · 10-29</span><h4 data-page-node-id="iJY7HV3FmEz9H7bEgppIWr">文件读写 <span class="en" data-page-node-id="FLl5eL31wkSBdw0gG9Ozfo">file · open · write</span></h4>
+<ul data-page-node-id="uMrq4bX9YCZvBkszfrXBwF"><li data-page-node-id="eHArlkWigTBr76QD3liRK9"><code data-page-node-id="vPALjh7uf3O5OtbC6CkFFO">open("日记.txt","a",encoding="utf-8")</code> 打开</li><li data-page-node-id="Pkes1EoH7qc8H314w44LOU"><code data-page-node-id="KbqDSTYaYSG40YCdGBjBAs">"a"</code> 追加 append / <code data-page-node-id="UyITmVEGuVdyCYQppvZkBZ">"w"</code> 覆盖 write / <code data-page-node-id="njDg9RSmzjHhpEqYuvQ07e">"r"</code> 读取 read</li><li data-page-node-id="NRFMgxAzLdRoCRK6yLO4xX"><code data-page-node-id="Yhz1gH50H1Am3zdM9xvOu0">readlines()</code> 逐行读，<code data-page-node-id="EOFtbCn3Bjz88zVL11wPXg">strip()</code> 去掉首尾空白</li></ul>
+<div class="pit" data-page-node-id="hmC872hBH0sVuiyisQlAQg">坑：write() 只收 1 个参数 argument，不能像 print 用逗号</div></div>
+
+<div class="card" data-page-node-id="WKupyMNCi4rDhAy7GYhxEp"><span class="tag" data-page-node-id="VUnFXJbgOkxtSLAArt4Q6F">L7 · 10-30</span><h4 data-page-node-id="TKlebS5nFFNQyHRoYDc8ay">循环统计 <span class="en" data-page-node-id="TnQPMzCGv5H5q3yzA8xGHG">for · split · len</span></h4>
+<ul data-page-node-id="0xa2nBKCYrFofEQMsDZQrV"><li data-page-node-id="vgrmNOk9vAdZ7N7AVluiQO"><code data-page-node-id="suVLHhoDgDPpq9CoGPXFmx">for line in lines:</code> 遍历 iterate 每一行</li><li data-page-node-id="iYLizQ6C63Ueh9NvotqNV8"><code data-page-node-id="0N34kiJ2IVRW99blHQAxLF">line.split()</code> 按空格切分 split 出名称和金额</li><li data-page-node-id="B7ZqhgL1p4xFnCbp098I49"><code data-page-node-id="8gTNLgafGNzR7imcLGaDM1">len()</code> 长度 length、<code data-page-node-id="6lSXHeLjXlJQ3WCfu7rVjY">round(x,1)</code> 四舍五入</li></ul>
+<div class="pit" data-page-node-id="YdOejJmIC2ehXSpicGFHD9">坑："过期变量" stale variable；脏数据 dirty data → 循环内 try/except 跳过 skip</div></div>
+
+<div class="card" data-page-node-id="eNk3z6s0COnP3Ywn18WMeo"><span class="tag g" data-page-node-id="HRljPZ7xQIt7nTgAbDha6C">L8 · 10-30</span><h4 data-page-node-id="BbXDiBLo5dc6rNYPWfK8aj">字典 <span class="en" data-page-node-id="HIgCQPJYnxkyAtL1RYiWhc">dict · dictionary</span></h4>
+<ul data-page-node-id="0BwKb6NFUXAaZA4okEBylA"><li data-page-node-id="M5hEzDRFgAHHdWt5HECWI6"><code data-page-node-id="ocXAw5TxFTxwKd0549gmk6">money_sum = {}</code> 建空字典、<code data-page-node-id="g08OY1OeBGHvWAJ6daPJC9">name in dict</code> 查键 key 存在</li><li data-page-node-id="jqBbZycKsXcvT8oI76BMng">核心套路：有就累加 accumulate，没有就新建 create</li><li data-page-node-id="IwIxvTDP4IP1uYWmddOOQd">延伸：<code data-page-node-id="6e8f7DxDqMZNof34hAToM5">max()</code> 最大 / <code data-page-node-id="9kUzygzrL938rNk9pjfcdv">min()</code> 最小 找价差</li></ul>
+<div class="pit" data-page-node-id="Mo84hCp2C2qzwj3jznhiEE">坑：变量名拼错 typo → 看 Problems（问题）面板</div></div>
+
+<div class="card" data-page-node-id="p6229oYBtQdHmVGnpQnnjY"><span class="tag p" data-page-node-id="fsTSuueyIUPoiMdieAUo9j">L9 · 11-01</span><h4 data-page-node-id="5II1rcvln9ijPC3jJbERbx">Git 本地 <span class="en" data-page-node-id="kfCz6UvACgopXXtPVTsFqE">add · commit</span></h4>
+<ul data-page-node-id="LUdYyy6S5LGkrCHD8GkL9s"><li data-page-node-id="7DEw4PDfZvMECpt8Rx1e5p">三区：工作区 working → 暂存区 staging → 仓库 repository</li><li data-page-node-id="0zch2rFAAxV4uXxLzO4L4v"><code data-page-node-id="LX1eU5Z0RA3iGhHIjOqWhd">git status</code> 状态 / <code data-page-node-id="MZmcNkNFSelHwsuHzDxAUh">diff</code> 差异 / <code data-page-node-id="a7eyyMrWhSoemyqy6IbvYE">log</code> 日志</li><li data-page-node-id="B14apwJWAdLfONhreBB5Gn">"没输出 = 成功"的 Unix 哲学</li></ul>
+<div class="pit" data-page-node-id="CCx4QhSmCZWs4Gu3637Nrv">坑：配置后必验证 verify；<code data-page-node-id="ThlkPe1NoH4y3brQiNTOCd">add .</code> 只管当前目录，全仓库用 <code data-page-node-id="p7lG3RplV7HLPCaXHl1I5b">add -A</code></div></div>
+
+<div class="card" data-page-node-id="lC7JiWpBWocC2FAJIExNfT"><span class="tag p" data-page-node-id="dxEzvecZECklsaajPrhwxJ">L10 · 11-01</span><h4 data-page-node-id="2YDeD8rlDbrdKktwCOlx43">GitHub 远程 <span class="en" data-page-node-id="cw9jcsGlcsfbjHcDy7YQss">remote · push · pull</span></h4>
+<ul data-page-node-id="L4od8ZnMUvsBwGll8kqwGK"><li data-page-node-id="ZpcBkoBuDDwoHIvb55n6LA"><code data-page-node-id="cAnMDTBmVJUTzBMFsgBAYU">commit</code> 本地存档，<code data-page-node-id="4BGPa4DcsJb1df80tBeW2M">push</code> 推送上云，<code data-page-node-id="yAMJHjEbQHjcyiqkqbsou3">pull</code> 拉取回来</li><li data-page-node-id="u7Xj3Lqe1gFnozkWZ4FbLD">日常三部曲：<code data-page-node-id="SCjKMYXWhHGxbutzltI1FI">add → commit → push</code></li><li data-page-node-id="p57jBAAQnM16EonfOKdxY5">VS Code OAuth 授权 authorize 免配置密钥</li></ul>
+<div class="pit" data-page-node-id="fb5AVWVpnSMcwqOGDGOTTs">坑：Public 公开 / Private 私有 可见性；不用的 PAT（个人令牌）要吊销</div></div>
+
+<div class="card" data-page-node-id="4s8a5PLfYpW2J0r8udi3mE"><span class="tag p" data-page-node-id="YgFafYeJWlKckmwwH0Tvnl">L11 · 11-01</span><h4 data-page-node-id="DCLyHawHCbIyFOrPVmEuJX">虚拟环境 + pandas <span class="en" data-page-node-id="YZtzsc0RSXFiK2tj62IRJp">venv · DataFrame</span></h4>
+<ul data-page-node-id="mqwfegeK7vnfx6pNJGTdlu"><li data-page-node-id="IwNDdNAxmdHcC2ntEYowUX"><code data-page-node-id="Ajl35IdoXuCHOWLpy764nY">source .venv/bin/activate</code> 激活 → <code data-page-node-id="O6mXnimW5UYPjbACH8pY3C">deactivate</code> 退出</li><li data-page-node-id="qITn94MkfajMYEYmHFgqCs"><code data-page-node-id="OIFOBwUWgArGfiJqiu1M09">read_csv / read_excel / groupby / to_excel</code></li><li data-page-node-id="SyIFDB1VDa99YgRY9AfzFv">向量化 vectorization：整列运算，不用 for 循环</li></ul>
+<div class="pit" data-page-node-id="HddtMWmzvhRv5vP1TJTfzi">坑：忘进 venv → ModuleNotFoundError（找不到模块）</div></div>
+
+<div class="card" data-page-node-id="ooELh6hRkFakSSkLlymTMc"><span class="tag g" data-page-node-id="KhaTOoa2JtrsvlCWF8sfPm">阶段四 · 进行中</span><h4 data-page-node-id="wTFffhO9YVnSruAV0bdDLc">物资核算 + 光伏成本分析 <span class="en" data-page-node-id="tevFQVBJX1oxyRBk4XUYr3">project</span></h4>
+<ul data-page-node-id="A3o7sM3QxaEB0K4gPThYDe"><li data-page-node-id="JTaEULuLmvgTHZqPvimryL">查重 <code data-page-node-id="ym6nBPKpVATaM0BkEd2q3G">drop_duplicates()</code> 去重 deduplicate（报清单，不静默删）</li><li data-page-node-id="CFJdwdUoYEYy34pwpxJou4">汇总 <code data-page-node-id="7yDzjGupVEXfXXNOdQgCGI">groupby().agg()</code> 聚合、加权平均 weighted average</li><li data-page-node-id="vZ2bEeWoC6DaBJEfUT6slm"><code data-page-node-id="iRypE1Z6Fx3rqgNUEB7nuC">df.loc[条件, 列]</code> 按条件改值、openpyxl 标红 highlight</li></ul>
+<div class="pit" data-page-node-id="l7Sgf7wVumNHuH8T2IRteM">坑：垃圾进垃圾出 GIGO——数据质量是第一道防线</div></div>
+</div>
+
+<h2 id="how" data-page-node-id="oUio71SAhTk1kZflRE3kK6">二、跟练方法（20 分钟一轮）</h2>
+<div class="note" data-page-node-id="ZItLBueAAe2D0reUkCJugZ">
+<b data-page-node-id="8MZEKuQEr8OqAtABLOTmaX">三轮法</b>：① 闭卷在终端 terminal 里敲一遍（卡住也要自己写完）；② 点"查看参考答案"对照；③ 差异用 <code data-page-node-id="xbfMOlbS3jMpcSwcnGF67A">git commit</code> 记下。<br data-page-node-id="2Iz8ayR1qACEG7HCxStqRp">
+<b data-page-node-id="g1L1HzJqAu3lR4GqD0Ec7m">原则</b>：不抄答案、先写再看；每课 1 道默写 dictation + 1 道变式 variation；错在哪就在那题旁边做个记号，下次只复习记号题。
+</div>
+
+<h2 id="drill" data-page-node-id="N7f5OZSSlBVFDWuuAPWauZ">三、跟练题库（点击展开答案）</h2>
+
+<h3 data-page-node-id="AwecxWQgVLdrkU2eJtF3XK">阶段一 · 基础语法（L1–L5）</h3>
+
+<details open data-page-node-id="qiSzqtE1n9V9zjCbEO9HJq"><summary data-page-node-id="3p77922F4t8uYoPyBE9lvb"><span class="step" data-page-node-id="dBXRi60FZvPPlm6EE7EyiT">默写</span>L1 · 输入 input 名字和项目名，输出 print 一句欢迎语 <span class="badge" data-page-node-id="r0z0QsENrPLP5ZrRVKxfed">3 分钟</span></summary><div class="ans" data-page-node-id="1uNFgB2yWF11PPEaNqTES3">
+<div class="hint" data-page-node-id="SCvqQtkHCdgRZPWYHllla4">预期运行效果：输入"张双"和"光伏项目"，输出：张双，欢迎回到光伏项目！</div>
+<pre data-page-node-id="6mWTJWGZ8vo9AInCP2Mi9D">name = <span class="kw" data-page-node-id="zaNrEDkacDYlwspO2amWnS">input</span>(<span class="s" data-page-node-id="ZpgJLnLwfiRwBGxb0vFvon">"你叫什么？ "</span>)
+proj = <span class="kw" data-page-node-id="63Q8ZQhdiGmjVDmfiZf1Ns">input</span>(<span class="s" data-page-node-id="bARDvURLF7BaO5bhyIGytQ">"什么项目？ "</span>)
+<span class="kw" data-page-node-id="MlMK24tCmY136N27UtsmnG">print</span>(name, <span class="s" data-page-node-id="WulFlG9l7fQeSlxqWHtaQB">"，欢迎回到"</span>, proj, <span class="s" data-page-node-id="g1f3tZeIM18wy7Av9aGEPC">！"</span>)</pre></div></details>
+
+<details open data-page-node-id="yBBf22d5iByyaUvLl9sh6d"><summary data-page-node-id="d78PbplTRGIkqOmDfj1Oeu"><span class="step" data-page-node-id="4Go5WUcZvUDguDvWu5wzmd">默写</span>L2 · 输入两次金额，输出合计（保留 1 位小数） <span class="badge" data-page-node-id="zcof1syGW5hjROR0IN4hDK">3 分钟</span></summary><div class="ans" data-page-node-id="SbatbjXxrllCBNT1FW0p6D">
+<div class="hint" data-page-node-id="NS2YKVSzAysLXfECsCWEis">考：input 返回 str，必须先转换；金额可能带小数，用 float 浮点数</div>
+<pre data-page-node-id="cbZIvGqpFNjC0hwJcBLfmD">a = <span class="kw" data-page-node-id="fJrin81grrza7pNlUGv1rR">float</span>(<span class="kw" data-page-node-id="SqeqxQNa1weAjajof81pwi">input</span>(<span class="s" data-page-node-id="4f2u3dY9ZzEk5xr9eusMBv">"第一笔： "</span>))
+b = <span class="kw" data-page-node-id="5EExl4ye7zCpRRnAfPlrQB">float</span>(<span class="kw" data-page-node-id="fgsH4QAjN6mV4P0AgUVYVl">input</span>(<span class="s" data-page-node-id="EbhDeItyjOJ1yzNCW5c6fu">"第二笔： "</span>))
+<span class="kw" data-page-node-id="egMLgrVrW1FuArcqeGquIL">print</span>(<span class="s" data-page-node-id="q3qqOWYry5ABLtEUZP5GaI">"合计"</span>, <span class="kw" data-page-node-id="FOudylAuGkp2Ze5raBOFCv">round</span>(a + b, <span class="s" data-page-node-id="SzLTx85153mpxD8osg2iHy">1</span>), <span class="s" data-page-node-id="1QUJqqas9eiZhDXPkVsHgJ">"元"</span>)</pre></div></details>
+
+<details open data-page-node-id="i3zuJDjkFVy2lQvfJhSUhH"><summary data-page-node-id="yTCDPhW3chZaJpH7FqudH4"><span class="step" data-page-node-id="v2AqlTdv6lbqg8HcgWx6zE">变式</span>L2 · 同样输入两笔，多算一个"平均" <span class="badge" data-page-node-id="XJhP6YAN4uU0EQbNmTHKLu">3 分钟</span></summary><div class="ans" data-page-node-id="SDECdvaOatYc3gKj8BRoHI">
+<pre data-page-node-id="tQHVAhbWYSwbUI6M6zGSE5">avg = (a + b) / 2
+<span class="kw" data-page-node-id="lKcm2ZSbcWRvYpwFhdXZJx">print</span>(<span class="s" data-page-node-id="TdD2DTczppy0qXcfQQ5jaL">"平均"</span>, <span class="kw" data-page-node-id="b6VXRJMy3nSlOadGFoegpP">round</span>(avg, <span class="s" data-page-node-id="IoHSa7uu1VkUhMqrRbp27B">1</span>), <span class="s" data-page-node-id="ZsUU1kdep43OnW8euckPw0">"元"</span>)</pre></div></details>
+
+<details open data-page-node-id="CdNzKyDTbbtYPLHgMW3gpz"><summary data-page-node-id="G2nmK3ntKaTNIm5sorUJzU"><span class="step" data-page-node-id="d50klC2k5siV8zT2N4RqtU">默写</span>L3 · 输入分数，输出 A(≥90) / B(≥60) / C(其余) <span class="badge" data-page-node-id="GfqxDQyvyBdXpnsDsAvmCk">4 分钟</span></summary><div class="ans" data-page-node-id="4JAmvkEvL21HtjzELpnEsx">
+<pre data-page-node-id="2E9R357OyhwCtoOCgBLJPr">score = <span class="kw" data-page-node-id="VCZwUYnNblMGaayKRMisWM">int</span>(<span class="kw" data-page-node-id="xRFXir93hBDHMMz95xptt0">input</span>(<span class="s" data-page-node-id="Bgqmh11bSTmEamsB9emOkO">"分数： "</span>))
+<span class="kw" data-page-node-id="8h7kUNYx9fYL5KITyyX8TE">if</span> score >= 90:
+    <span class="kw" data-page-node-id="ykOnpCQrVLa90vOXViEL3h">print</span>(<span class="s" data-page-node-id="nAHWENay04ZDJvyJfXlfvC">"A"</span>)
+<span class="kw" data-page-node-id="YlOkiq9iLNAGdlZd8cK1l8">elif</span> score >= 60:
+    <span class="kw" data-page-node-id="udfTmUcOGAeWbYD9Jcswyn">print</span>(<span class="s" data-page-node-id="ySBgybirS7HbXwdlzeZodb">"B"</span>)
+<span class="kw" data-page-node-id="0nAQEFV3oHlm03IFsGFmyc">else</span>:
+    <span class="kw" data-page-node-id="BVB59IcvQ6MmLOsMFbQ8d3">print</span>(<span class="s" data-page-node-id="SAHqHWoCE5WcdxwgkcZXRn">"C"</span>)</pre></div></details>
+
+<details open data-page-node-id="Fe3gtbYv7grXHaPPc8GMFF"><summary data-page-node-id="bLaSzkRqvF8x3afYW9aUK4"><span class="step" data-page-node-id="dbfhtaFlyvvABSfe2JZezN">变式</span>L3 · 改成按"超耗率"分级：&gt;5% 红、0~5% 黄、≤0 绿 <span class="badge" data-page-node-id="wAKEWw6HGirZ8xYMmPq6FR">4 分钟</span></summary><div class="ans" data-page-node-id="9ffuryAkwXZBBAvEXj6qpf">
+<pre data-page-node-id="CVIDHtbC89pNZCPDeGR9SA">rate = <span class="kw" data-page-node-id="0dRbgMwtmAguAjsgi5abUw">float</span>(<span class="kw" data-page-node-id="gDzFl6EMra6HLg7GkpBOv8">input</span>(<span class="s" data-page-node-id="kcVK35nDgLHXShTlHYuSad">"超耗率%： "</span>))
+<span class="kw" data-page-node-id="F89VVR20E1hq3HVex7o3kn">if</span> rate > 5:
+    <span class="kw" data-page-node-id="OUdhDgAWhrZUQZuR5rrbEj">print</span>(<span class="s" data-page-node-id="li1QFqkFJQwvAmy0n1I9jo">"红（超耗）"</span>)
+<span class="kw" data-page-node-id="NNEjWUqdpBiAimg9uNaVFE">elif</span> rate > 0:
+    <span class="kw" data-page-node-id="U5Lsps9uCfTVBsVkA8iCQH">print</span>(<span class="s" data-page-node-id="mRPRADsQZDTeoWe6gqnFXb">"黄（关注）"</span>)
+<span class="kw" data-page-node-id="dawv2vODmnKIkHFSYdCyle">else</span>:
+    <span class="kw" data-page-node-id="96DbTBM5BdP2TI3BBDafte">print</span>(<span class="s" data-page-node-id="hl4Xxmjy72ZYZ0auqEIHBO">"绿（正常）"</span>)</pre></div></details>
+
+<details open data-page-node-id="zBNICaKxKB8OYi6AtpB2am"><summary data-page-node-id="LWFMQGk8jgizBHBZHflNfy"><span class="step" data-page-node-id="Y6MS9XHpLT91UQLFL0wF62">默写</span>L4 · 猜数字：随机 1~100，循环猜，提示大小，统计次数 <span class="badge" data-page-node-id="uQIcVDlsmG9aV1L7pU4lkF">6 分钟</span></summary><div class="ans" data-page-node-id="i7LWdVjkUCTBCzvGfrjJTd">
+<pre data-page-node-id="TTCyKgHcnGbXA0HQeML9tM"><span class="kw" data-page-node-id="cphUOON5BBAselvzCjFFqk">import</span> random
+answer = random.randint(1, 100)
+count = 0
+<span class="kw" data-page-node-id="O5ZzGQCnyZTibQq7BrygNa">while True</span>:
+    guess = <span class="kw" data-page-node-id="wjdbFCFjW8dOi2tyteikA2">int</span>(<span class="kw" data-page-node-id="51zqQ75gTAzvdfprCKPqj8">input</span>(<span class="s" data-page-node-id="3iewPkHBvEcNZC64lT36fF">"猜一个数： "</span>))
+    count = count + 1
+    <span class="kw" data-page-node-id="WENIdcsVU9qYdOatYduTau">if</span> guess > answer:
+        <span class="kw" data-page-node-id="NX53VaJagZw90prbXo6p9R">print</span>(<span class="s" data-page-node-id="mcUn8dPGelw0yF8A07aVvZ">"大了"</span>)
+    <span class="kw" data-page-node-id="zCBXwuksIaMEObyrBLruED">elif</span> guess < answer:
+        <span class="kw" data-page-node-id="HxzYTJJVhLOySLqLDz0Rnt">print</span>(<span class="s" data-page-node-id="tbY2YsDPDuGCLGkV5wuH0t">"小了"</span>)
+    <span class="kw" data-page-node-id="HZXvXsBceoW2qYJ0njSUxP">else</span>:
+        <span class="kw" data-page-node-id="LYqAEWiItMgDiViJubqR3d">print</span>(<span class="s" data-page-node-id="eH5JLBzp8uHzGZ9BqFBVSX">"猜对了！用了"</span>, count, <span class="s" data-page-node-id="D041NXqH27CO8R4qzegHpQ">"次"</span>)
+        <span class="kw" data-page-node-id="lM6JbsGr5Ay2lD375zLqze">break</span></pre></div></details>
+
+<details open data-page-node-id="p1gh0FddEHh07mxabxPBFQ"><summary data-page-node-id="SH4rQtxEeWfaT7hQCVtThP"><span class="step" data-page-node-id="X6sUMzflB3eHGm4AUDU64B">变式</span>L4 · 最多猜 7 次，猜完没中就公布答案 <span class="badge" data-page-node-id="6lvXPW2InWmlGQRV0SU7N0">4 分钟</span></summary><div class="ans" data-page-node-id="JcoJn8CIvE834TnEkGJW5V">
+<div class="hint" data-page-node-id="HxQfkwhdsyoDfod6u086dp">提示：在循环开头加判断，break 前 print 答案</div>
+<pre data-page-node-id="EJuIt1ZwoDAbzOBGQUDH08">    <span class="kw" data-page-node-id="zwBDqitnRtXlvLewJaMEr4">if</span> count >= 7:
+        <span class="kw" data-page-node-id="Jhr3RcowcrXVU12jSzllCF">print</span>(<span class="s" data-page-node-id="wPBqRHeFwi1qorMazbDIMA">"机会用完，答案是"</span>, answer)
+        <span class="kw" data-page-node-id="BISwsX6TSvddXhKQqTrBcx">break</span></pre></div></details>
+
+<details open data-page-node-id="JGoZ5eWiA6FeuM1NUdXP73"><summary data-page-node-id="bsnQp1xURJoEoBVqJiZ75L"><span class="step" data-page-node-id="PT1PxeFHYofTOm40G8rr6r">默写</span>L5 · 给猜数字加防崩（输入非数字不崩、重新输入） <span class="badge" data-page-node-id="HQW68BjrsHfXYTxf2mBjNi">4 分钟</span></summary><div class="ans" data-page-node-id="EYDWQNXsa2YyXLnFqhsRIB">
+<pre data-page-node-id="2XHAZfUOM4HO828vo3p6GF">    text = <span class="kw" data-page-node-id="jk6DUuHLnMO4ARgaOBqXtx">input</span>(<span class="s" data-page-node-id="LQFXd1h2TVsgSj7uIAXOA1">"猜一个数： "</span>)
+    <span class="kw" data-page-node-id="CGdkkP99tLFNPtg0sVYLoO">try</span>:
+        guess = <span class="kw" data-page-node-id="i4B9dVTxYjNoPQtuWAr3eP">int</span>(text)
+    <span class="kw" data-page-node-id="VNymS4Hh2xZQAcLV640ALX">except</span>:
+        <span class="kw" data-page-node-id="2x2UUaTjIzkhKqNox7XrTN">print</span>(<span class="s" data-page-node-id="g6Ag53cCX59BitC1INMjBJ">"请输入数字！"</span>)
+        <span class="kw" data-page-node-id="yVhYyvKBcIR5rC5fk1LB23">continue</span></pre></div></details>
+
+<h3 data-page-node-id="Rjj5P4PqFwZ6NGnoXm7xGI">阶段二 · 小脚本（L6–L8）</h3>
+
+<details open data-page-node-id="EuTMXAm3oprbEmN7DcZPcM"><summary data-page-node-id="lWrbH9AFcDf12v03cdxGkF"><span class="step" data-page-node-id="yFe8D4sCikKLHCkeD9xfCG">默写</span>L6 · 把输入的一句话追加 append 写入 note.txt <span class="badge" data-page-node-id="PIevBDHDrFv8E2C31B9YXR">4 分钟</span></summary><div class="ans" data-page-node-id="hwstNnTe629bere6X8FfY1">
+<pre data-page-node-id="bcmRi7pqFn4fyZUcG6X2Tv">text = <span class="kw" data-page-node-id="k9jdWY4DXUGcZB5HeIiyBC">input</span>(<span class="s" data-page-node-id="dC6O1dMRrSlZYvsfOyeox0">"记点什么： "</span>)
+f = <span class="kw" data-page-node-id="IkdvfTdn4DUIy0bPGOkqWV">open</span>(<span class="s" data-page-node-id="WYaBoFsAT3ZiahA5gcZ5tp">"note.txt"</span>, <span class="s" data-page-node-id="HiErilbheUEVvUIJMySo6b">"a"</span>, encoding=<span class="s" data-page-node-id="Xpps3cHYSR0z96czO0RJhb">"utf-8"</span>)
+f.write(text + <span class="s" data-page-node-id="6ReJUVwttGRd2R2fbaBkhf">"\n"</span>)
+f.close()
+<span class="kw" data-page-node-id="6HvcAEbFoNSCHvZYmPtpHx">print</span>(<span class="s" data-page-node-id="GCj6eNfn8FxXs5jPMs2Whz">"写好了"</span>)</pre></div></details>
+
+<details open data-page-node-id="PWXSM71YYVMj3kkoorDcAl"><summary data-page-node-id="lBa5BhwE8PwBRi0v5YscC4"><span class="step" data-page-node-id="tXyUYBYAtaKSq805nDW3QR">默写</span>L7 · 读流水文件（每行"名称 金额"），打印明细并算总额 <span class="badge" data-page-node-id="trhnxtUAFUA9AcZAfO0GBO">6 分钟</span></summary><div class="ans" data-page-node-id="otu9Z9fs4fECNyfTpISUHQ">
+<pre data-page-node-id="jZbrk2POxr2mUHWl3Zv9VW">f = <span class="kw" data-page-node-id="AbYISDqyZ1NZyXbVdsIl4G">open</span>(<span class="s" data-page-node-id="pMc8fSunE4dHQsuU9Xs2cR">"流水.txt"</span>, <span class="s" data-page-node-id="ID60pLfa6Cth2DLQWxaDPE">"r"</span>, encoding=<span class="s" data-page-node-id="YhQkqo1B1UrC5BbOCEzG4X">"utf-8"</span>)
+lines = f.readlines()
+f.close()
+total = 0
+<span class="kw" data-page-node-id="wBULSOc88CMIt8nPwK78jf">for</span> line <span class="kw" data-page-node-id="vt1RyzSMEmHVzrtd3JKzn1">in</span> lines:
+    parts = line.split()
+    name = parts[0]
+    money = <span class="kw" data-page-node-id="dJRYdI8juTVMKxlRT7dJU6">int</span>(parts[1])
+    <span class="kw" data-page-node-id="pfB5YgDAMPV1ft9RFyMt1k">print</span>(name, money, <span class="s" data-page-node-id="HhqtJQgdDvzEixmDOW0eh8">"元"</span>)
+    total = total + money
+<span class="kw" data-page-node-id="iYLQDNNxDFBo0XVDioaHQW">print</span>(<span class="s" data-page-node-id="6KOUw4BcciMN7WmF3lFhVw">"合计"</span>, total, <span class="s" data-page-node-id="hDT4otwIo7F1JTO5CojwnU">"元"</span>)</pre></div></details>
+
+<details open data-page-node-id="HvXmu8T85FHcCEPHAQH4BQ"><summary data-page-node-id="GCRczP4MCIQx1HpmmTtSxQ"><span class="step" data-page-node-id="Bu6whLvARk3OzMYe1AhiZ6">变式</span>L7 · 查询时遇到坏行（金额不是数字）跳过 skip，不崩 <span class="badge" data-page-node-id="kA0iDGHc467P25ggQHwzxO">4 分钟</span></summary><div class="ans" data-page-node-id="1E4kHEyJhnS2YE3AZyf882">
+<pre data-page-node-id="m5hHIocPduH5A4Kq9zL8RQ">    <span class="kw" data-page-node-id="UMHMMGgxjnYW1toOxlc4Ns">try</span>:
+        money = <span class="kw" data-page-node-id="IYJABehrGHqNzAiwRhnnAh">int</span>(parts[1])
+    <span class="kw" data-page-node-id="N2aTmJiiVL6o0kzKFQrWpL">except</span>:
+        <span class="kw" data-page-node-id="whdJF9qGhnqHnSXDA7mY4j">print</span>(<span class="s" data-page-node-id="j39e1a7RFZTFHLFAXHNoxq">"（跳过坏数据："</span>, line.strip(), <span class="s" data-page-node-id="f6UVBomaaIbrWlZd8rEFVv">"）"</span>)
+        <span class="kw" data-page-node-id="oS2x322NTGusM6Sfp7EfDI">continue</span></pre></div></details>
+
+<details open data-page-node-id="ow241csybFoVuPUyFQV6GX"><summary data-page-node-id="EYab0mbP6yCEw655V5AxPK"><span class="step" data-page-node-id="9GUkDpyyphFcmpQFatHFgB">默写</span>L8 · 用字典 dict 统计：奶茶 25, 电影票 30, 奶茶 10，按物品汇总 <span class="badge" data-page-node-id="TFafk0cbVKodFEQJgMsgGR">5 分钟</span></summary><div class="ans" data-page-node-id="wjr9GGORAWPbbArjQRFbWS">
+<pre data-page-node-id="plsG1BBxO5CY8Iz67t5IsS">records = [(<span class="s" data-page-node-id="5bt4mJxMQqTUKGHl8NvJcC">"奶茶"</span>, 25), (<span class="s" data-page-node-id="I5REXSyJrGddhCM9FXoW9k">"电影票"</span>, 30), (<span class="s" data-page-node-id="i7ZjAnR4euZAxGDZ5aO5cV">"奶茶"</span>, 10)]
+money_sum = {}
+<span class="kw" data-page-node-id="3tEvpl49YDJpWBsZ7A15c0">for</span> name, money <span class="kw" data-page-node-id="zuWUTasXDt9th5y8AnD11A">in</span> records:
+    <span class="kw" data-page-node-id="gZ0SEY8f1ELIQ1MQaGehv9">if</span> name <span class="kw" data-page-node-id="7LtlhuPFyToldzDCMZQrmQ">in</span> money_sum:
+        money_sum[name] = money_sum[name] + money
+    <span class="kw" data-page-node-id="bbmiuYfIqZ9uDs7q67475N">else</span>:
+        money_sum[name] = money
+<span class="kw" data-page-node-id="m1XzmPTpeGcdyA2lePZ0wt">print</span>(money_sum)   <span class="c" data-page-node-id="YJJu4qPrvlITv9inPQa7QU"># {'奶茶': 35, '电影票': 30}</span></pre></div></details>
+
+<details open data-page-node-id="WBINYEZKbVDlZQAbLkPyn2"><summary data-page-node-id="0OPB1uxPh40JE8V8y0ZtXD"><span class="step" data-page-node-id="8Wc7RBfX5NWBUuePuibvnE">变式</span>L8 · 同一物品出现不同价格就报警（奶茶：25 和 10） <span class="badge" data-page-node-id="Ht5UgDEuPKJRnr3v3Quv3o">4 分钟</span></summary><div class="ans" data-page-node-id="SiVtavGiYrXXgWrhLzTkO2">
+<pre data-page-node-id="IaBMSzIrzk9iwBmhhgsFtH">prices = {}
+<span class="kw" data-page-node-id="7FxjPBbVgEqmCaiJWvwGjT">for</span> name, money <span class="kw" data-page-node-id="wGtmv3XIIsPPhPxRy4Nfq5">in</span> records:
+    <span class="kw" data-page-node-id="GYsK7pt6oBV2Fl6Am5ECE0">if</span> name <span class="kw" data-page-node-id="WgTnSHAkYeeQaADg1n9NM0">in</span> prices:
+        prices[name].append(money)
+    <span class="kw" data-page-node-id="hDtxXPRkxt61XvLFRpmH2s">else</span>:
+        prices[name] = [money]
+<span class="kw" data-page-node-id="C3KTeZitLDHzHQZorN7EtI">for</span> name <span class="kw" data-page-node-id="ZLVgDr9tk1JZ9XjhjDlYFF">in</span> prices:
+    <span class="kw" data-page-node-id="6CqQ8jzzSEFRaTUowuDoi4">if</span> <span class="kw" data-page-node-id="rmDa1d8yl4yKJFyx3TbNyL">max</span>(prices[name]) != <span class="kw" data-page-node-id="ZUWA6bVWN9LdR6Rjy9i0Ur">min</span>(prices[name]):
+        <span class="kw" data-page-node-id="dBuusKhpAlI5QhxHYkY1a7">print</span>(name, <span class="s" data-page-node-id="dEKir3hUbG4ZLrBOnKlNoJ">"价格异常："</span>, prices[name])</pre></div></details>
+
+<h3 data-page-node-id="xgW2vllxrC9NqaZRJyD9vk">阶段三 · Git（L9–L10）</h3>
+
+<details open data-page-node-id="l7NmeLtFZ3V9WAt0HDwPWI"><summary data-page-node-id="JgdVmrrxF07XSg4aE7Pb9I"><span class="step" data-page-node-id="vZj83UDZqTdBcqh2NUwbG8">默写</span>L9 · 新项目第一次提交的完整命令（6 条） <span class="badge" data-page-node-id="nzocE7jqQQBfcvAALHSnOW">4 分钟</span></summary><div class="ans" data-page-node-id="BTuGQiIvmcB8y6FbmDLK7q">
+<pre data-page-node-id="rapE4AFWRcHEvPq0Zfnk7o">git config --global user.name <span class="s" data-page-node-id="M1A7zn2cFpX9KX5xRpPo3Y">"张双"</span>
+git config --global user.email <span class="s" data-page-node-id="chFCUDQzJGU7CGWoG74zxv">"zhangs0109@163.com"</span>
+git config --global core.quotepath <span class="kw" data-page-node-id="j2rktc5KIYAfPAx4YkUpdN">false</span>   <span class="c" data-page-node-id="5TsrSoGjb6AOR4mNFbrDxF"># 中文文件名不乱码</span>
+git init
+git add .
+git commit -m <span class="s" data-page-node-id="Q15gewf3FhLYGZWL5JVgAG">"初始提交"</span></pre></div></details>
+
+<details open data-page-node-id="8sfSYDaAXHgOFP3Av2eE9T"><summary data-page-node-id="WsJB3IBM7VOIHY91FzMF1j"><span class="step" data-page-node-id="cQkTNcvNiG0L3Q1PBqzB60">默写</span>L10 · 日常归档三部曲（今天改完代码后） <span class="badge" data-page-node-id="ttaKSrlZuKQ3csRoFSxyhN">2 分钟</span></summary><div class="ans" data-page-node-id="M5P9oMf61GCajS0Ryz1vdY">
+<pre data-page-node-id="tbLlHMicantTgip6X5axnt">git add .
+git commit -m <span class="s" data-page-node-id="5Umlw6cVttbs87nanTMZaA">"光伏项目成本分析 v1"</span>
+git push</pre></div></details>
+
+<details open data-page-node-id="TpyeoWtxoNVqElS6zHOIGt"><summary data-page-node-id="ExScMOqV08iyzkAnXniG1A"><span class="step" data-page-node-id="rbEA7aZwAVz11nqYi3uSMK">变式</span>L9/L10 · 想撤销"暂存"和查看"改了什么"，各用什么命令？ <span class="badge" data-page-node-id="7Em61sHEtSwviVUWXB8Y9i">3 分钟</span></summary><div class="ans" data-page-node-id="aOXHEr99kI7RMwpd4AtgDc">
+<div class="hint" data-page-node-id="TVxkZyx44k8QQvWlNTrpYd">暂存区退回工作区 / 看本次改动内容</div>
+<pre data-page-node-id="G9IGwiKkyGAE8xypF7OnjA">git status          <span class="c" data-page-node-id="ejRS9QP3SnSRnOwEkUC8PP"># 先看状态</span>
+git diff            <span class="c" data-page-node-id="0mYLKRWlxwlumTLpRr4o6u"># 看具体改动（未暂存的）</span>
+git restore --staged 文件名   <span class="c" data-page-node-id="uKk02HPmcPnTu9DZMkavvr"># 从暂存区撤回</span></pre></div></details>
+
+<h3 data-page-node-id="W9wmwU9u02cvvk2GAVL7DC">L11 · 虚拟环境 venv + pandas</h3>
+
+<details open data-page-node-id="xs3w6jDm44VEXYiCRjvurL"><summary data-page-node-id="mgv97oXznBGLgGaVhKYZd9"><span class="step" data-page-node-id="xFF7HzC1poFlcXKu1fOHiz">默写</span>L11 · 进环境 → 装库 → 读 CSV → 按列汇总 → 导出 Excel <span class="badge" data-page-node-id="0vw22do9UQEIByM6Ujq7iS">6 分钟</span></summary><div class="ans" data-page-node-id="bBdZWKdhWhxAZCfDS6qwBY">
+<pre data-page-node-id="dBDOnWcO58OEFEmpD86bBs"><span class="c" data-page-node-id="d5IfhOnkmp7ssAqwCqpEFo"># 终端里：</span>
+source .venv/bin/activate
+pip install pandas openpyxl
+
+<span class="c" data-page-node-id="QyUfbVNGovyBOXRtzn1qgW"># 代码里：</span>
+<span class="kw" data-page-node-id="YxeqU1n9QqxthNaGGeHoAa">import</span> pandas <span class="kw" data-page-node-id="82ip3EAOAnOrbbz2jeeiC5">as</span> pd
+df = pd.read_csv(<span class="s" data-page-node-id="qNTyLna9E34AoHCbcJBYXW">"物品汇总.csv"</span>, encoding=<span class="s" data-page-node-id="iBC1SYfEgYAnluZ8JacM0e">"utf-8-sig"</span>)
+result = df.groupby(<span class="s" data-page-node-id="DdsrNHqHVmYFAU9VGMZn6a">"物品"</span>)[<span class="s" data-page-node-id="wkyvoRfnH2QYHjYshdBaDx">"金额"</span>].sum()
+result.to_excel(<span class="s" data-page-node-id="KhzKSFD7at3gXUY5aKv33I">"汇总.xlsx"</span>)</pre></div></details>
+
+<details open data-page-node-id="JIGYfukBXS35RH6Coam2hi"><summary data-page-node-id="Uqe7jmUPqF2Zuoys9SgC56"><span class="step" data-page-node-id="YhdnNMQDjLK3ZbsVnrHSZt">变式</span>L11 · 报错 ModuleNotFoundError，第一反应查什么？ <span class="badge" data-page-node-id="sSy9qLnw9VWciWWG6URpNr">1 分钟</span></summary><div class="ans" data-page-node-id="1IyMzWwUIrdBzr1AcgrAa8">
+<div class="hint" data-page-node-id="fWnNRKjYSFPHeZ1AVobLDx">不是代码问题，是环境 environment 问题</div>
+<pre data-page-node-id="Wz7vFfpJP7Q1S0lvDCFs2Z"><span class="c" data-page-node-id="WwwkvWu0HHLfZkq0U6Hcjn"># 看终端提示符有没有 (.venv) 前缀；没有就：</span>
+source .venv/bin/activate
+<span class="c" data-page-node-id="r13ZQbBXp71mv3RivbKdJO"># 再跑</span></pre></div></details>
+
+<h3 data-page-node-id="olYxnBV79FhZX7HAmnpZv2">阶段四 · 项目实战（跟练改造）</h3>
+
+<details open data-page-node-id="Pb1Z49kG3U7yIPvFJj0vdo"><summary data-page-node-id="up9whkOMKZclJCQ1e2ZDzv"><span class="step" data-page-node-id="jhVyKXbXt6bou1gRejaGjj">改造</span>把 material_check.py 的超耗阈值 threshold 从 3% 调成 8% <span class="badge" data-page-node-id="FtJQU7xC3hb4eQZVpWKNxB">5 分钟</span></summary><div class="ans" data-page-node-id="AqwoLjMnqvC0xV9vPthX1M">
+<div class="hint" data-page-node-id="SyCwUgz1TTYvYLSKm4eQvU">只改文件顶部的配置项，不改逻辑</div>
+<pre data-page-node-id="Cj5WcdnG5TLlxK2k2r7kvS">THRESHOLD = 8      <span class="c" data-page-node-id="ivb4Ezp25RaQwRZj6ws9jO"># 原来 3</span></pre></div></details>
+
+<details open data-page-node-id="7ZNeZ0Jd05Yt0Fv7wgWrWM"><summary data-page-node-id="NKG3zEIioqmAHhME0srzNL"><span class="step" data-page-node-id="9W32aoA7va7imUis1SlLKS">改造</span>给 pv_analysis.py 加一个维度：按"费用归集人员"统计 <span class="badge" data-page-node-id="IJBZaRstbVr82JKTKKpwKE">10 分钟</span></summary><div class="ans" data-page-node-id="zMTykvDek6iCtfrpfh8TkN">
+<div class="hint" data-page-node-id="c7az6ZKsNTipwbvgke8R3P">复用 agg_by 函数，一行就能加</div>
+<pre data-page-node-id="kWlOIbxJr7NTkh2nzuL8dp">staff = agg_by([<span class="s" data-page-node-id="EGJ7zVz0pQH6tAmCDGg7Rv">"费用归集人员"</span>])
+<span class="c" data-page-node-id="lq4UQkEbWrR9ftbJWj4AGZ"># 再把它写进 Excel：staff.to_excel(w, sheet_name="11_归集人员", index=False)</span></pre></div></details>
+
+<details open data-page-node-id="X4WQnKjL6AUL4ytYofsvUO"><summary data-page-node-id="bE52BJ8f3DbxPPfjURdjxy"><span class="step" data-page-node-id="jqzUTUD2fk0Qz5uxWy7t9Y">应用</span>在 pv_analysis.py 里找 3 处可以自己改的地方，改完重跑对拍 <span class="badge" data-page-node-id="wWfgcVRHr1eDce2oshZL52">15 分钟</span></summary><div class="ans" data-page-node-id="4B5GXySFg3vGggZxBKeKia">
+<div class="hint" data-page-node-id="alZfPT2T5wZOCYpLYsm1xg">例如：TOP20 改 TOP10、材料表 head(60) 改 head(100)、看板 KPI 加一张卡片、新增一张 Sheet</div></div></details>
+
+<h2 id="vocab" data-page-node-id="w0KHbx2ZfO4TZv0ZJdI7TL">四、高频英文词汇表</h2>
+
+<h3 data-page-node-id="xB1YWvYSLgC7cTxSAj0ls3">Python 基础词</h3>
+<table data-page-node-id="BRXemlBSXLHH4018WHRLsY">
+<tr data-page-node-id="Qt6fFrX4o8BGUszFQmYEnP"><th data-page-node-id="ZfPInoBTmUlkcpETqhrAvT">英文</th><th data-page-node-id="BiAG0GvnBVZudv7Saa2Aqu">中文</th><th data-page-node-id="s6EQZTCzSqSrYRWAUxl1n5">你的场景</th></tr>
+<tr data-page-node-id="xHrpsBXOqHzd9xb6v6i2vX"><td data-page-node-id="xc1KELoUQK2tiIdIYfDxLa">variable</td><td data-page-node-id="ZXS0CpP2z9e57d3W9cSfHC">变量</td><td data-page-node-id="6LStvOsnSwJViCspbOK2I4"><code data-page-node-id="eAMKuGMxUWADkqT206hvqw">name = "张双"</code> 里的 name</td></tr>
+<tr data-page-node-id="G4IwDSYI7VNMrsOIOguUx9"><td data-page-node-id="WI6Gooivk0RIS42p2MZnz5">string (str)</td><td data-page-node-id="SEyRQA41X0ylX93NaaVbBx">字符串</td><td data-page-node-id="D7IQA9Kicxn9Clfgoif3B7">带引号的文本 <code data-page-node-id="IHwHiwb8vn2xgeL9zzwIls">"奶茶"</code></td></tr>
+<tr data-page-node-id="qDDl2Kd2HGmZcEuwPsYD9I"><td data-page-node-id="FL0D42XmhwzE5fntPEJEC9">integer (int)</td><td data-page-node-id="O9XnVQok2D4Ks9tsYAenUd">整数</td><td data-page-node-id="hdcRNsFv6EJ5DtqVU9NtP6">次数、年份</td></tr>
+<tr data-page-node-id="BJauMBVCS0iMMH5DUJnUGB"><td data-page-node-id="M0KC6N2H41SKxHUD4aCp6t">float</td><td data-page-node-id="dHd34pQom3dPYdBpyWJVGL">浮点数（小数）</td><td data-page-node-id="HhQOhBdw5NC16ZGF15Au83">金额、单价、汇率</td></tr>
+<tr data-page-node-id="9yExHLhCtBpDT2PpdEbgrk"><td data-page-node-id="kOA9qUrRfTODGKhX2YJwrg">list</td><td data-page-node-id="l0lDb4TBVFEMN2gp7eqLVp">列表</td><td data-page-node-id="YSVd0G9RDqY0mYHxFL1NPv"><code data-page-node-id="BTx30UTT5EQ9fGn2bMU6Xo">[25, 30, 10]</code> 一串数据</td></tr>
+<tr data-page-node-id="ISbTeB7bt5XcFjVf6U3NIJ"><td data-page-node-id="eM0hfqY7XaiyIVA2OTLE7L">dict / dictionary</td><td data-page-node-id="O39uuDwpqL6MKOnZCywJJj">字典</td><td data-page-node-id="JJWd3YZKEqCf4oyFnUEohC"><code data-page-node-id="In9u0cCJV91hVIXAd4OrzN">{"奶茶": 35}</code> 键值对 key-value</td></tr>
+<tr data-page-node-id="i0a0OE7iOcExywfZgVxLso"><td data-page-node-id="SEgsoHK2capWo7QAeN3VEw">loop</td><td data-page-node-id="7FVc30wGiGKVouf4BBDG4D">循环</td><td data-page-node-id="Rg4ALKpe7KFvcHJtHmqYJV">for / while</td></tr>
+<tr data-page-node-id="y4JgCoPVopsI1SwqWqtjEC"><td data-page-node-id="Hj8gR6IXX0vDMLTPvTSSAB">condition</td><td data-page-node-id="s8J8TKq8ySqGwpzizkOlhx">条件</td><td data-page-node-id="fJnApCZaQdf31sTN7vFMcE">if 后面的判断</td></tr>
+<tr data-page-node-id="rQZPcl0L0yEjNl9RUQAYfg"><td data-page-node-id="DKIKBOo8XDo50RRj6o9UQK">indentation</td><td data-page-node-id="RGex8e2AGJomM6FdlMsQJ0">缩进</td><td data-page-node-id="U42Ghmpt1H5f5nP9g46WFR">行首 4 个空格，Python 的语法</td></tr>
+<tr data-page-node-id="VKcW9midute5FFLES4FEhK"><td data-page-node-id="TN4FEYn6xhJfB9EEwBoyUO">import</td><td data-page-node-id="Ty3N1c1aiTYgcSVGASZLoT">导入</td><td data-page-node-id="2vDPLAZg2NVwjmGwyml4Sm"><code data-page-node-id="OEeS8YnXYuswOZrkHruiX1">import pandas</code> 引入工具库</td></tr>
+<tr data-page-node-id="jFpMG6A5CiuHrQAUedjmtR"><td data-page-node-id="wyspiqtcf8JZaEvxlfrU0D">function</td><td data-page-node-id="WvaI7xeqxoL51dHnSPdaT0">函数</td><td data-page-node-id="khl6b2vCxENMjRCf2RT5ws"><code data-page-node-id="xPaTJJ3JlHbY8Jgqm10BpQ">print()</code> 就是一个函数</td></tr>
+<tr data-page-node-id="BUOBxOG1JDCf3Y4Deri2xL"><td data-page-node-id="l9b8FHVI8bMg0FbhyBLD6G">argument / parameter</td><td data-page-node-id="Fa3AcYyQESHztNueM2UiGF">参数</td><td data-page-node-id="DnoERcsUyBCkVuYdaOd5JK">括号里传给函数的东西</td></tr>
+<tr data-page-node-id="DR1vkkmQrf7xUJP6JAjlZ6"><td data-page-node-id="qAspQKC6iwg8TPgF2UxTAC">return</td><td data-page-node-id="yhMAjgAXnMz2cO83hdFGLE">返回</td><td data-page-node-id="t6Fe3y9fkhIdzdTXcbvAYd">函数算完交回来的结果</td></tr>
+<tr data-page-node-id="3LTAjuIG3HC3ft85KsNHPC"><td data-page-node-id="DKhGfF6tMzGwJR5YskJzhl">index</td><td data-page-node-id="HquUsVuPml5jJBTmwFHnz6">索引</td><td data-page-node-id="vkPgI78vfBcG4N7yFTGR6A">从 0 开始的位置编号</td></tr>
+<tr data-page-node-id="RKUUyoun6YfEPjfat9dCrd"><td data-page-node-id="Jch5GZVAlRQM7UnNO87D8n">row / column</td><td data-page-node-id="4mUuPGLCDHs6WbnUmveA7X">行 / 列</td><td data-page-node-id="7pO0eTwFF6kkrQpDUO7tRV">DataFrame 的行列</td></tr>
+<tr data-page-node-id="Y7NUGZyyb1dAjlgN7YiSu7"><td data-page-node-id="XLaH2rwmQj9vAWgZZAo5q8">missing / null</td><td data-page-node-id="z8CWfW5EACpWvZbX0N0CKt">缺失 / 空</td><td data-page-node-id="KSNkHRL2kAaEXNUIp0TIYb">NaN 空值</td></tr>
+<tr data-page-node-id="1b2p1fENesh1PRCl1yV4ep"><td data-page-node-id="8fJcBB35ax9uaNR0qkDvOA">duplicate</td><td data-page-node-id="S79kDTfm57mJuDB0m7qRi1">重复</td><td data-page-node-id="rT5n7tc7BFBfUX4j5pavCO">重复录入的行</td></tr>
+<tr data-page-node-id="mBSnOVUr8JpCUui6lc6ELH"><td data-page-node-id="sNNOre9HmApCUCm2nH7mN1">aggregate (agg)</td><td data-page-node-id="QSpiEB5nljw0ZVJk75k3vN">聚合</td><td data-page-node-id="g5CWqvSU3MDoAqOI76W4Fp">groupby 后的汇总计算</td></tr>
+</table>
+
+<h3 data-page-node-id="0OFY8wJPwV3ELBv3bjUn2m">Git 高频词</h3>
+<table data-page-node-id="TWpjpBADpLz81abNHf7FJ4">
+<tr data-page-node-id="rrIo2oDzODsWJA96i5TQtg"><th data-page-node-id="a0H01t3QQvYlrWtoWLR6Rb">英文</th><th data-page-node-id="nojMW1L15XldMIFibeBUjr">中文</th><th data-page-node-id="JLrdChAHU8tbLACyFSjTB6">场景</th></tr>
+<tr data-page-node-id="1qfTz60F34xwBnTGEkIDVn"><td data-page-node-id="RgYDl7vMUHZ4ika0LPLGmb">repository (repo)</td><td data-page-node-id="2bNaeebx0T2KxKLCXMfojn">仓库</td><td data-page-node-id="cWlTGP5z800w0CwyuNAHFq">你的 python-learning 项目</td></tr>
+<tr data-page-node-id="GjMTPLRW4KNAEl2GH5W0tU"><td data-page-node-id="ikEmcucoIL9GP6XuScZ3Qj">working directory</td><td data-page-node-id="EZd3Vqwnijclre20LCAdnz">工作区</td><td data-page-node-id="ayt3MTyUXisYZn5A9OxDlK">你在改的文件</td></tr>
+<tr data-page-node-id="gD6mgWYHvFp0vSOini2doK"><td data-page-node-id="HYRJKnWWIePEJievgg0711">staging area</td><td data-page-node-id="AMZHem6rGgkKOym19FKDMy">暂存区</td><td data-page-node-id="4oJG9gv7oJv9dmYwQp6j0C">git add 之后的中转站</td></tr>
+<tr data-page-node-id="iYKTPIrSPfvhmYYTpxCFkn"><td data-page-node-id="cIJDpSPzcvGeYRdD5Fq7AW">commit</td><td data-page-node-id="6lDJAZzTUqZwDzbJowKdkm">提交（存档）</td><td data-page-node-id="ex2eBVtQbRVkSJ5bZkax0d">git commit -m "说明"</td></tr>
+<tr data-page-node-id="vKnIVHlLr0RrHFmBB9C1E2"><td data-page-node-id="PDt4CF6yAkxyHvlTouOlqV">push / pull</td><td data-page-node-id="fu970bskCDJhsMpOLpjyfa">推送 / 拉取</td><td data-page-node-id="U7DA14uG45AbN3qcOzRmtT">上云 / 下载</td></tr>
+<tr data-page-node-id="u6ciM7DiPDUidAUKVraQsM"><td data-page-node-id="PT7kx8ZJG7wrOYKxU5ZHIB">remote</td><td data-page-node-id="NT8CymrVTGFRIwpdoPSci3">远程</td><td data-page-node-id="I0BSgzbzC5BHWEsDKFygOl">origin 就是远程仓库的别名</td></tr>
+<tr data-page-node-id="FEwRzCgfBgTMHHfI71MQAA"><td data-page-node-id="Vrg4o3sAIFEaPnYKJRubgw">branch</td><td data-page-node-id="y6LRFIWBcJDFvwdqj1AxGq">分支</td><td data-page-node-id="ndF3WNft8lzsMn31vtAEys">main 是主分支</td></tr>
+<tr data-page-node-id="pYP7iuu4mzvDVZOwcl1YLi"><td data-page-node-id="w2memPN6M6uxZkyxxJtEkO">merge / conflict</td><td data-page-node-id="JDRbvEG21A1UFZiIGXiHyU">合并 / 冲突</td><td data-page-node-id="UlKmaleUDPkkfqq6nAHsTF">两人改同一处会冲突</td></tr>
+<tr data-page-node-id="KpoOtb5muIJfXxFwnBDWnR"><td data-page-node-id="lJ3TeQcaZsmURZrTWuEBJK">tracked / untracked</td><td data-page-node-id="RJfMud3zCOTqlagOsdsj5r">已跟踪 / 未跟踪</td><td data-page-node-id="IMlZ0EYUQ5BksCUg8Rxvpa">文件后的 U 就是 untracked</td></tr>
+<tr data-page-node-id="ZgYgFbnEVVElsOhqIROmgI"><td data-page-node-id="K6EhZhhvsTrliYuwdG1Xnp">modified</td><td data-page-node-id="KTtGxNcb7SfxqMmjWPzCGe">已修改</td><td data-page-node-id="ejJgfprlCPvt9VpGp5WO9G">文件后的 M</td></tr>
+</table>
+
+<h3 data-page-node-id="2BQk5J6UID4FZKhBfgukos">常见报错 Error 对照（排错快一倍）</h3>
+<table data-page-node-id="kFAFE3Y5kFz6m1B98IIIaF">
+<tr data-page-node-id="e6C4oiP5dhJaf3nIz87xLg"><th data-page-node-id="ISL0tAbrhFkeqcNzULMEFv">报错</th><th data-page-node-id="5xZHNVZSP7XCrPoYQEH5aW">中文含义</th><th data-page-node-id="13EY1XF04RfLm7yeBvfSHH">你遇到过的那次</th></tr>
+<tr data-page-node-id="ghKeFhRRotj0cr8eDfh01p"><td data-page-node-id="5UylTF0VVZYxZD6Hp5ewQQ">SyntaxError</td><td data-page-node-id="yc6HKSWfmNQykvT6eZjTLZ">语法错误</td><td data-page-node-id="en3E3E11lFx7aiPdPh9Bb9">中文标点混进代码</td></tr>
+<tr data-page-node-id="0o75WaUEPpigUjVg1oLs6A"><td data-page-node-id="VvFU87i6kyOksBcVWGbJ6X">IndentationError</td><td data-page-node-id="a9cWqcCDT95z4wjLyQhGDM">缩进错误</td><td data-page-node-id="Pi0Ph95Wzc65AyVYrX8AF5">if 下面忘缩进 4 空格</td></tr>
+<tr data-page-node-id="uGEgsgRubjM2MxwBsF1Ggr"><td data-page-node-id="jwnChiFjR5eBiVbQCAtIyk">NameError</td><td data-page-node-id="j4BZQuym5nlFYjVsX9M6U7">名称错误（变量没定义）</td><td data-page-node-id="X6H4FnFUCY3OGHEhMro5wm">except 后忘 continue；mongey_sum 拼错</td></tr>
+<tr data-page-node-id="T2mwxu7HSmQJUCMn7O47TE"><td data-page-node-id="ouUDEHB3hA41fLrSl4iwfW">TypeError</td><td data-page-node-id="cbCS3J7Z20emNdIqJtRjDW">类型错误</td><td data-page-node-id="8E8nGVfntTQkCZVg5PDJgy">write() 给了两个参数</td></tr>
+<tr data-page-node-id="kuugxVqvAT1ygXEJ0pKZMK"><td data-page-node-id="A9rvGKbEIXMwMYEaxYKozX">ValueError</td><td data-page-node-id="BmTvOxvrCdqcv7H8duUg2H">值错误</td><td data-page-node-id="zBYVbxjrRA33MBBzB5mVCX">int("abc") 转不了数字</td></tr>
+<tr data-page-node-id="pCEKEhRk9po7dmEazmiAIV"><td data-page-node-id="xvFczzKqYd5YuXdVTd0zA8">FileNotFoundError</td><td data-page-node-id="C1j4sT4HDQZFhFKVlYOlCB">找不到文件</td><td data-page-node-id="ZxLfYWzlkK6T1si941fIuI">cd 错目录、文件名写错</td></tr>
+<tr data-page-node-id="9RsidX7AkaAK0LfJTmEmcD"><td data-page-node-id="2DD96rLJ5JfnsB02AjWxFs">ModuleNotFoundError</td><td data-page-node-id="7SEMldjLRbQ426aqKbT7RQ">找不到模块</td><td data-page-node-id="do2HJhFWRWP5shKgPt0RKa">忘进虚拟环境 (.venv)</td></tr>
+<tr data-page-node-id="PFpLFQLg8S504CN8pvuPXP"><td data-page-node-id="U0pXDmjBpqdy8ZTy0b4aGI">KeyError</td><td data-page-node-id="vfqTwslAQrkwobrEvDB03Q">字典里没这个键</td><td data-page-node-id="ecsllqdUJTmHfEtp81XVKm">dict["不存在的名字"]</td></tr>
+<tr data-page-node-id="l7fF6panllIodj0rqsul8E"><td data-page-node-id="XxiV9UtG0XbCMBafGU3RpD">IndexError</td><td data-page-node-id="nkp0SE2aFUcKVJIsRkBi8p">索引越界</td><td data-page-node-id="GVlA1UV070VCFvsryKVAzC">列表只有 3 个却取第 4 个</td></tr>
+</table>
+
+<div class="note" data-page-node-id="BzzkX90saBBpwB8g0U3XZx">学习方法：不用背。每次报错时翻这页对照一次，三次就记住了。</div>
+
+<h2 id="extend" data-page-node-id="4cZ8I7PEUxe0xGleaPpytb">五、扩展方向（按你的职业定制）</h2>
+<table data-page-node-id="AjeBK45bbG8ekoWg526rkJ">
+<tr data-page-node-id="LZoKR7RffJ3KLiXPez4MBw"><th data-page-node-id="VujyoEswI128fsqXDwqtHn">方向</th><th data-page-node-id="KTNC40YxpRsUhTH7JX0E1S">做什么</th><th data-page-node-id="AGM3gE2PSPZjGT6y6CNqsC">难度</th></tr>
+<tr data-page-node-id="8SbEzt7AI5XvxYScBqf2fG"><td data-page-node-id="01Q5xUF52sE2k3fXsgc1QW"><b data-page-node-id="Siimo6WuKpRVKVv7jLjSix">L12 · 函数 def (function)</b></td><td data-page-node-id="eCzjuB7tgoStuTaaovonmG">把"读取→清洗→汇总→导出"封装成函数，下月换数据源只传文件名</td><td data-page-node-id="oahmnEslE6gj3fjaLYoRKD">★★</td></tr>
+<tr data-page-node-id="56iyGQhFC3SMcyRN5Rc4Au"><td data-page-node-id="ZMbg2USnkeHSTXEhGSkDaT"><b data-page-node-id="0OdbAQCDv8bbYD6IUJMM4E">L13 · 月度环比 (month-over-month)</b></td><td data-page-node-id="4DiFKWOXUjiz3UyWxqXLQt">在光伏分析上加"本月 vs 上月"环比，用 <code data-page-node-id="cDT3kQGoxpo15wFYYCLZ4b">pct_change()</code></td><td data-page-node-id="8ZS9fBTXaPsQNnqZKQjyT9">★★</td></tr>
+<tr data-page-node-id="OO9Fz9BPYpP2Q1Mf6inZd0"><td data-page-node-id="8rKfQGWT3RxJvmAenbCh4d"><b data-page-node-id="is2FyO9NaaVbTe1ULEgunI">L14 · 分包结算台账</b></td><td data-page-node-id="tttq6Prm1GptrIAqmbO8f9">计量-应付-实付-余额四栏自动核算（复用 groupby + loc）</td><td data-page-node-id="ies6LkAwa25IDl2UA7ggtu">★★★</td></tr>
+<tr data-page-node-id="epiLsxCnCiAzZrSEOvbG7N"><td data-page-node-id="4QYNre0yIp9v5svlUcOgwS"><b data-page-node-id="IppADIS2CvxRSi8tjWW9E6">L15 · 供应商考核</b></td><td data-page-node-id="HZyIDHhMaugBpLFSXfG69S">把超耗追到供应商头上：同一供应商多笔合并、算单价离散度</td><td data-page-node-id="EWaOumaLdOgs3iqHb0cKLb">★★★</td></tr>
+<tr data-page-node-id="2IjmKIBZHMjdFuAgbFoZj9"><td data-page-node-id="fQfPxSD65YeAC7OyYDDxf2"><b data-page-node-id="AEdos96W6fnmsj1ongXnGC">L16 · 多文件合并 (merge)</b></td><td data-page-node-id="3q3WkoBxs056W4VRmaJXzH">十几个分包商各报一份 Excel，一个循环读进来 <code data-page-node-id="n54TCfmvZdfxP7Hushi6kX">pd.concat()</code></td><td data-page-node-id="lYjrWcrHd3pqjFreQyMY9o">★★★</td></tr>
+<tr data-page-node-id="ESDWHM3ND9aV52aCcNwupp"><td data-page-node-id="fslSGSivW14xtvzo1GWiUG"><b data-page-node-id="XZQXpFJdZ8kCE1IlMPuT7P">通用 · 编码归一</b></td><td data-page-node-id="59FazpXYhTY421vg1m1qco">把计价单位、材料编码建一张"标准字典"对照表，自动替换</td><td data-page-node-id="BQw7ksPYZ9wgge1xFSKppD">★★</td></tr>
+</table>
+
+<h2 id="plan" data-page-node-id="9QmL8kqTC0suF7u8TAV6Mn">六、记忆曲线复习计划</h2>
+<table data-page-node-id="PYgdPXie1HsQGGAC45mNkq">
+<tr data-page-node-id="UWTXwwo2S2EKiOdjlPuV7U"><th data-page-node-id="JJv5MHCKGtGO9mVFQZ5ZfF">时间</th><th data-page-node-id="rS9ndBRHXKrNfhckAr0KMQ">做什么</th><th data-page-node-id="A3DGN8aHCDxWhoHsWbmuiu">时长</th></tr>
+<tr data-page-node-id="aXB3MgyMAmGgPvjzMNOe8P"><td data-page-node-id="e0pS8DpaVlLaqhw3icYG8j">今天</td><td data-page-node-id="YYVX2Leu3sbMuGtBCBtF6c">把这份手册按"三轮法"完整过一遍（本页）</td><td data-page-node-id="YNly8QaMKAwv9bIg9drMMG">20 分钟</td></tr>
+<tr data-page-node-id="rU4qVwBphb1NCe6pvGi6Ca"><td data-page-node-id="UI5K9KcOD4tOV2oplu8OKK">3 天后（11-04）</td><td data-page-node-id="G5HLXtlJczgF7o2g1YkgZA">只做标注过的错题 + 默写 L8/L11（字典、groupby 是核心）</td><td data-page-node-id="UFb9Unlhz2Z6sW57AGCvOl">10 分钟</td></tr>
+<tr data-page-node-id="Occ5VMcuIu0bkrqdLffa2s"><td data-page-node-id="eWEyR4sGiNMMF3js3UdyJ6">1 周后（11-08）</td><td data-page-node-id="aD5ycwL7MrhFRsyGZ0sHa1">不看答案重写物资核算 v2 的核心 10 行（查重+汇总+预警）</td><td data-page-node-id="SFRngH66wInF3X7Ugjpac8">15 分钟</td></tr>
+<tr data-page-node-id="nIsPhQOCfjzPtC8FZyFcxq"><td data-page-node-id="25f7EwJwtu7Ig9BKTcVqd7">1 月后（12-01）</td><td data-page-node-id="UVaEYClbLuZ0xOcYl6QBgU">给光伏分析换一个真实新数据源，全流程独立复现</td><td data-page-node-id="2XQqBVfZZkLSYYJDvOxU3H">30 分钟</td></tr>
+</table>
+
+<div class="note" style="margin-top:26px" data-page-node-id="xNkVng8o1LMY5hm51UInMl">
+<b data-page-node-id="C9jatFsoRTLChHvoVuvOhs">阿布的话</b>：你已经从零基础走到"能自己改代码、能读懂 9000 行台账、能给工具挑毛病"——这比记住多少函数重要得多。接下来一个月，<b data-page-node-id="Cp9IxXOOcFZY7lWvupwUqE">不追新语法，只把这套东西用熟</b>。英文词汇不用背，遇到时回这页对照一次就够。
+</div>
+
+</div>
+</body>
+</html>
