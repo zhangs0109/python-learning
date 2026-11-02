@@ -2,9 +2,9 @@
 score = int(input("分数："))
 if score >= 90:
     print("A")
-elif score >=60:
+elif score >= 60:
     print("B")
-elif score >=30:
+elif score >= 30:
     print("C")
 else:
     print("D")
