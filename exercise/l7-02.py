@@ -8,11 +8,10 @@ for line in lines:
     try:
         money = int(parts[1])
     except:
-        print("(跳过坏数据：", line.strip()," )")
+        print("(跳过坏数据：", line.strip(),")")
         continue
 
     name =parts[0]
-    money = int(parts[1])
     print(name, money, "元")
     total = total + money
 print("合计", total, "元")

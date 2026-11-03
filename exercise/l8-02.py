@@ -8,5 +8,4 @@ for name, money in records:
         prices[name] = [money]
 for name in prices:
     if max(prices[name])!= min(prices[name]):
-        print (name, "价格异常：", prices[name])
-        
+        print(name, "价格异常：", prices[name])

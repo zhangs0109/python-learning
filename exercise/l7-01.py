@@ -5,7 +5,7 @@ f.close()
 total = 0
 for line in lines:
     parts = line.split()
-    name =parts[0]
+    name = parts[0]
     money = int(parts[1])
     print(name, money, "元")
     total = total + money
