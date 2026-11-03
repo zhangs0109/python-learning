@@ -207,6 +207,20 @@ count = 0
 
 <h3 data-page-node-id="Rjj5P4PqFwZ6NGnoXm7xGI">阶段二 · 小脚本（L6–L8）</h3>
 
+<div class="note">
+<b>阶段二起点提醒（重要）</b>：从 L6 开始，练习的性质变了——不再是"一问一答"，而是<b>读写文件的小程序</b>。所以每个练习都要（1）有配套的数据文件，（2）本身是完整可运行的程序。<br>
+<b>① 先建数据文件</b> <code>流水.txt</code>（放在练习目录，每行"名称 金额"，其中故意留一条坏数据）：
+<pre>奶茶 25
+电影票 30
+爆米花 abc
+花生米 2
+小苹果 6
+香蕉 120
+奶茶 10</pre>
+<b>② 片段不能单独跑</b>：像"跳过坏行"这种改造，必须放进 L7-01 的循环里；单独一个文件会报 <code>SyntaxError: 'continue' not properly in loop</code>。<br>
+<b>③ 自检三问</b>：数据文件在不在？代码是否完整（有没有 <code>f.close()</code>）？这段代码跟哪个文件配套？
+</div>
+
 <details open data-page-node-id="EuTMXAm3oprbEmN7DcZPcM"><summary data-page-node-id="lWrbH9AFcDf12v03cdxGkF"><span class="step" data-page-node-id="yFe8D4sCikKLHCkeD9xfCG">默写</span>L6 · 把输入的一句话追加 append 写入 note.txt <span class="badge" data-page-node-id="PIevBDHDrFv8E2C31B9YXR">4 分钟</span></summary><div class="ans" data-page-node-id="hwstNnTe629bere6X8FfY1">
 <pre data-page-node-id="bcmRi7pqFn4fyZUcG6X2Tv">text = <span class="kw" data-page-node-id="k9jdWY4DXUGcZB5HeIiyBC">input</span>(<span class="s" data-page-node-id="dC6O1dMRrSlZYvsfOyeox0">"记点什么： "</span>)
 f = <span class="kw" data-page-node-id="IkdvfTdn4DUIy0bPGOkqWV">open</span>(<span class="s" data-page-node-id="WYaBoFsAT3ZiahA5gcZ5tp">"note.txt"</span>, <span class="s" data-page-node-id="HiErilbheUEVvUIJMySo6b">"a"</span>, encoding=<span class="s" data-page-node-id="Xpps3cHYSR0z96czO0RJhb">"utf-8"</span>)
