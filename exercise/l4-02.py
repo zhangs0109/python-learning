@@ -3,12 +3,12 @@ import random
 answer = random.randint(1,100)
 count = 0
 while True:
-
-    guess = int(input("猜一个数："))
-    count = count + 1
     if count > 7:
         print("机会用完，答案是", answer)
         break
+
+    guess = int(input("猜一个数："))
+    count = count + 1
 
     if guess > answer:
         print("大了")

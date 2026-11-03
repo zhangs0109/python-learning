@@ -6,4 +6,3 @@ elif rate >= 0:
     print("黄（关注）")
 else:
     print("绿（正常）")
-    

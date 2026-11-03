@@ -3,6 +3,9 @@ import random
 answer = random.randint(1,100)
 count = 0
 while True:
+    if count > 7:
+        print("机会用完，答案是", answer)
+        break
     text = input("猜一个数：")
     try:
         guess = int(text)
@@ -11,10 +14,6 @@ while True:
         continue
 
     count = count + 1
-    if count > 7:
-        print("机会用完，答案是", answer)
-        break
-
     if guess > answer:
         print("大了")
     elif guess < answer:
