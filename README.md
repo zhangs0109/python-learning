@@ -29,6 +29,22 @@ python3 hello.py
 - [x] L8 加餐：字典 dict（按物品汇总统计验收通过——奶茶 2 笔/合计/平均全对；2026-10-30）
 - [x] L9 Git 本地基础：init/add/commit/status/diff/log，两次提交验收通过（2026-11-01）
 - [x] L10 GitHub 远程仓库：注册账号、VS Code OAuth 授权、push 上云成功（2026-11-01）
-- [ ] L11 虚拟环境与 pip：venv、第三方库
-- [ ] 阶段四：独立项目实战（候选：物资消耗核算工具 / 分包结算台账 / 变更索赔台账 / 供应商考核汇总）
-- [x] Git 基础提交已学会（2026-11-01）
+- [x] L10 进阶：`git diff --staged` / `git restore --staged`，修复嵌套仓库与 `add .` 路径陷阱（2026-11-04）→ **阶段三毕业 🎓**
+- [x] L11 虚拟环境与 pip：venv 创建/激活/退出、pip 装库、requirements.txt 导出（2026-11-01）
+- [x] L12 pandas 入门：read_excel、筛选、groupby 具名聚合、加权平均价、to_excel（2026-11-01）
+- [x] 项目一：物资消耗核算与超耗预警 `project/material_check.py`——查重报告 + 同类项汇总 + 加权均价 + 预警标红（2026-11-01）
+- [x] 项目二：光伏项目基础数据表分析 `project/pv_analysis.py`——8,868 行、15 类数据体检、11 Sheet + 5 图表 + 网页看板，7 个控制总额全部对拍一致（2026-11-01）
+- [ ] 项目二后续：处理 280 条重复录入、计价单位归一化
+- [ ] 阶段四：下一个项目（候选：分包结算台账 / 变更索赔台账 / 供应商考核汇总 / 月度环比对比）
+
+## 环境说明
+
+- 编辑器：VS Code（已装 Python 扩展 + Excel Viewer）
+- 办公软件：**WPS Office**（本机 `/Applications/wpsoffice.app`）。注意 `.et`/`.wps` 是私有格式，pandas 读不了，需先另存为 `.xlsx`；WPS 导出的 CSV 常为 GBK 编码，读时加 `encoding="gbk"`。
+- 虚拟环境：项目根目录 `.venv/`（已写入 `.gitignore`，不提交）
+  ```bash
+  cd python-learning
+  source .venv/bin/activate    # 激活，提示符出现 (.venv)
+  pip install -r requirements.txt
+  deactivate                   # 退出
+  ```

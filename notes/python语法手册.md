@@ -2,7 +2,7 @@
 
 > 📌 按主题归档的语法速查手册，示例全部来自我们自己写过的代码。
 > 标记说明：✅ 已学 ｜ 🔵 学习中 ｜ 🔜 后面会学
-> **最后更新**：2026-10-29
+> **最后更新**：2026-11-04
 
 ---
 
@@ -18,6 +18,10 @@
 8. [文件读写](#八文件读写-)
 9. [常见报错速查](#九常见报错速查-)
 10. [编程好习惯](#十编程好习惯-)
+11. [字典与按物品汇总](#十一字典与按物品汇总-)
+12. [虚拟环境与 pip](#十二虚拟环境与-pip-)
+13. [pandas 数据分析](#十三pandas-数据分析-)
+14. [Git 命令速查](#十四git-命令速查-)
 
 ---
 
@@ -168,6 +172,9 @@ money = int(parts[1])          # 25
 | `ValueError` | 值不对 | `int("你好")` 文字转不成数字 |
 | `can't open file ... No such file or directory` | 文件不存在 | 运行时文件名打错了 |
 | `TypeError` | 类型不对 | 数字和文字直接用加号拼接 |
+| `FileNotFoundError` | 找不到数据文件 | 数据文件不在"当前工作目录"，或文件名/路径写错 |
+| `ModuleNotFoundError` | 找不到这个库 | 没装库，或忘了激活虚拟环境（少了 `(.venv)` 前缀） |
+| `No configured push destination` | 没配置推送目标 | 这个仓库没有远程（多半在子目录里误跑了 `git init`） |
 
 **看报错的秘诀：看最后几行**——错误类型 + 出错的行号。
 
@@ -178,6 +185,9 @@ money = int(parts[1])          # 25
 3. 报错先自己读一遍，再求助
 4. 代码里加 `#` 注释，给三个月后的自己看
 5. 一次只改一处，改完就跑，方便定位问题
+6. 用 `BASE = os.path.dirname(os.path.abspath(__file__))` 拼绝对路径，脚本放哪都能跑
+7. 数字能加的前提是**单位相同**；外币要先折算
+8. 工具不要替人做业务判断：发现异常先报告，改不改由人定
 
 ## 十一、字典与按物品汇总 ✅
 
@@ -221,3 +231,112 @@ for name in money_sum:                  # 汇总报告
 - 键名拼错：`mongey_sum` ≠ `money_sum`，报 "is not defined"
 - **过期变量**：循环结束后，循环里的变量还保留着最后一轮的值——别在错误的循环里用它做计算
 - 分清"循环内"（每轮都做）和"循环外"（全部做完做一次）：缩进说了算
+
+## 十二、虚拟环境与 pip ✅
+
+```bash
+# 在项目根目录执行
+python3 -m venv .venv            # 创建（create）虚拟环境
+source .venv/bin/activate        # 激活（activate）→ 提示符前出现 (.venv)
+pip install pandas openpyxl      # 安装（install）第三方库
+pip list                         # 看装了什么
+pip freeze > requirements.txt    # 导出依赖清单
+pip install -r requirements.txt  # 别人复原环境
+deactivate                       # 退出（deactivate）
+```
+
+**关键认知：**
+- 提示符前有 `(.venv)` = 在房间里装库；没有 = 装到系统里（危险）
+- 虚拟环境与**当前目录无关**，`cd` 到哪都还在房间里
+- `.venv/` 不提交 Git（体积大、与操作系统绑定），写进 `.gitignore`
+- 报 `ModuleNotFoundError` 先查两件事：装了吗？激活了吗？
+
+## 十三、pandas 数据分析 ✅
+
+```python
+import pandas as pd
+
+# 读 Excel（WPS 的 .et/.wps 读不了，先另存为 .xlsx）
+df = pd.read_excel("台账.xlsx", sheet_name="明细", header=2)  # 表头在第 3 行 → header=2
+df = pd.read_csv("数据.csv", encoding="gbk")                  # WPS 导出的 CSV 常是 GBK
+
+# 打量一下数据（每次读进来都先做这四件事）
+df.head()            # 前 5 行
+df.columns           # 列名
+len(df)              # 行数
+df.shape             # (行数, 列数)
+df.dtypes            # 每列的类型
+
+# 取数与统计
+df["实耗量"].sum()      # 求和
+df["实耗量"].max()      # 最大
+df["实耗量"].idxmax()   # 最大值所在行号
+df["实耗量"].mean()     # 平均
+
+# 筛选
+over = df[df["超耗量"] > 0]                      # 只要满足条件的行
+df.loc[df["超耗量"] < 0, "超耗金额"] = 0          # 条件 + 列 → 批量赋值
+
+# 排序
+df = df.sort_values("实耗金额", ascending=False)   # 按金额降序
+
+# 查重（不是删重！）
+dup = df[df.duplicated(keep=False)]               # keep=False 连第一笔一起标出来
+
+# 分组汇总（字典的工业版）
+g = df.groupby(["材料", "部位", "单位"], as_index=False).agg(
+    笔数=("实耗量", "count"),        # 具名聚合：结果列名 = (源列, 算法)
+    数量=("实耗量", "sum"),
+    金额=("实耗金额", "sum"),
+)
+g["单价"] = (g["金额"] / g["数量"]).round(2)       # 加权平均价 = 总金额 ÷ 总数量
+
+# 清洗
+df["数量"] = pd.to_numeric(df["数量"], errors="coerce")  # 转不了的变 NaN
+df = df.dropna(subset=["数量"])                          # 丢掉 NaN 行
+df["单位"] = df["单位"].replace({"Kg": "KG", "kg": "KG"}) # 单位归一
+
+# 导出
+df.to_excel("结果.xlsx", index=False)   # index=False：别把行号写成一列
+```
+
+**三条铁律：**
+1. **`header` 数错，整张表错位**——读进来先 `head()` 看一眼
+2. **加权平均 ≠ 单价平均**：成本核算永远用 `总金额 ÷ 总数量`
+3. **不是所有数字都能加**：KG 和台班、人民币和美元，先归一再汇总
+
+## 十四、Git 命令速查 ✅
+
+```bash
+# 一次性配置
+git config --global user.name "张双"
+git config --global user.email "zhangs0109@163.com"
+git config --global core.quotepath false    # 中文文件名正常显示
+
+# 日常三命令
+git add -A                      # 全部暂存（-A 覆盖整个仓库，比 . 稳）
+git commit -m "做了什么"        # 本地存档
+git push                        # 同步到 GitHub
+
+# 查看
+git status                      # 颜色看状态
+git diff                        # 还没 add 的改动
+git diff --staged               # 已经 add 的改动
+git log --oneline               # 历史（新的在上）
+git rev-parse --show-toplevel   # 我到底在哪个仓库里？（排查嵌套仓库的神器）
+
+# 撤销
+git restore --staged 文件名     # 从暂存区撤回（改动保留，不丢代码）
+git restore 文件名              # 丢弃工作区的改动（⚠️ 真丢，慎用）
+
+# 远程
+git remote -v                   # 看远程地址
+git remote add origin <url>     # 绑定远程
+git push -u origin main         # 首次推送并记住默认目标
+```
+
+**规矩：没有输出 = 一切正常**，只有报错才说话。
+
+**两个高频坑：**
+- 在子目录误跑 `git init` → 嵌套仓库 → push 报"没有推送目标"。查：`git rev-parse --show-toplevel`；治：删掉子目录的 `.git`
+- `git add .` 只管当前目录以下；改名过大小写的文件要 `git add -A` 才认
