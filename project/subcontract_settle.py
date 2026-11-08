@@ -110,13 +110,17 @@ if len(dup) > 0:
     print(dup[["序号", "合同编号", "分包队伍", "结算期次", "本期计量(原币)", "本期实付"]]
           .to_string(index=False))
     print("  ↑ 请回台账核对：是同一笔录了两遍，还是同期次分两次计量（后者要改期次号）")
-    dup_usd = (dup["本期计量(原币)"] / dup["汇率"]).sum() / 2   # 每条算两遍，除以2才是多记的那一份
-    issues.append({
-        "问题类型": "重复结算",
-        "涉及记录": "、".join(f"{r['合同编号']}-{r['结算期次']}" for _, r in dup.iterrows()),
-        "金额影响": f"虚增计量约 {dup_usd:,.2f} 美元",
-        "处理建议": "回台账删除重复录入的一行（保留一条），重新跑脚本",
-    })
+    # 同一期次只记一条问题（重复行本身会让同一个问题被记多遍）
+    dup_usd = 0.0
+    for (no, period), grp in dup.groupby(KEY):
+        extra = (grp["本期计量(原币)"] / grp["汇率"]).sum() * (len(grp) - 1) / len(grp)
+        dup_usd += extra
+        issues.append({
+            "问题类型": "重复结算",
+            "涉及记录": f"{no}-{period}（{len(grp)} 条）",
+            "金额影响": f"虚增计量约 {extra:,.2f} 美元",
+            "处理建议": "回台账删除重复录入的行（保留一条），重新跑脚本",
+        })
 else:
     print("  未发现 ✔")
 
@@ -174,7 +178,8 @@ if len(single_over) > 0:
     tmp["超付金额"] = single_over["本期实付"] - single_over["本期应付"]
     print(tmp.to_string(index=False))
     print("  ↑ 多半是预付款未扣完、或有代垫费用没入账，需逐笔查清")
-    for _, r in single_over.iterrows():
+    # 同一期次只记一条（重复行会让同一笔超付被记两遍）
+    for _, r in single_over.drop_duplicates(subset=KEY).iterrows():
         gap = r["本期实付"] - r["本期应付"]
         issues.append({
             "问题类型": "单期超付",
@@ -185,7 +190,8 @@ if len(single_over) > 0:
 else:
     print("  未发现 ✔")
 
-print(f"\n  体检小结：发现 {problem_found} 类问题，共 {len(issues)} 条记录（详见导出表「体检问题」页）")
+print(f"\n  体检小结：发现 {problem_found} 类问题，共 {len(issues)} 项问题记录"
+      f"（同一期次的重复行已合并计数，详见导出表「体检问题」页）")
 
 # ==================== 三、算钱 ====================
 title("第 2 步 ｜ 算钱：本期应付 → 累计 → 余额")
